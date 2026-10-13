@@ -6,10 +6,11 @@ Static HTML business plan for a mini golf course + bar at 806 E Ramseur St, Durh
 |---|---|
 | Property | `index.html` |
 | Competitive Analysis | `competition.html` |
-| Issues | `issues.html` |
 | Revenue Estimates (interactive) | `revenue.html` |
-| Expenses | `expenses.html` |
-| Labor | `labor.html` |
+| Initial Capex | `capex.html` |
+| Ongoing Expenses (incl. labor) | `opex.html` |
+| GM Job Ad | `gm-ad.html` |
+| Issues | `issues.html` |
 
 All pages share `styles.css`. The P&L model is `806-Ramseur-PnL.xlsx`.
 

@@ -1,74 +1,100 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>806 Ramseur Revenue Estimates</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=JetBrains+Mono:wght@400;600&family=Public+Sans:wght@400;600;700&display=swap"><link rel="stylesheet" href="styles.css"></head><body>
 <header class="mast"><div class="wrap"><div class="brand">806 E Ramseur Mini Golf + Bar<small>Business plan workbook · Durham, NC 27701</small></div><div class="meta">Updated Oct 13, 2026</div></div></header>
-<nav class="card-nav" aria-label="Plan sections"><ol><li><a href="index.html"><span class="no">01</span><span class="nm">Property</span></a></li><li><a href="competition.html"><span class="no">02</span><span class="nm">Competitive Analysis</span></a></li><li><a href="issues.html"><span class="no">03</span><span class="nm">Issues</span></a></li><li><a href="revenue.html" aria-current="page"><span class="no">04</span><span class="nm">Revenue Estimates</span></a></li><li><a href="expenses.html"><span class="no">05</span><span class="nm">Expenses</span></a></li><li><a href="labor.html"><span class="no">06</span><span class="nm">Labor</span></a></li></ol></nav>
+<nav class="card-nav" aria-label="Plan sections"><ol><li><a href="index.html"><span class="no">01</span><span class="nm">Property</span></a></li><li><a href="competition.html"><span class="no">02</span><span class="nm">Competitive Analysis</span></a></li><li><a href="revenue.html" aria-current="page"><span class="no">03</span><span class="nm">Revenue Estimates</span></a></li><li><a href="capex.html"><span class="no">04</span><span class="nm">Initial Capex</span></a></li><li><a href="opex.html"><span class="no">05</span><span class="nm">Ongoing Expenses</span></a></li><li><a href="gm-ad.html"><span class="no">06</span><span class="nm">GM Job Ad</span></a></li><li><a href="issues.html"><span class="no">07</span><span class="nm">Issues</span></a></li></ol></nav>
 <main class="wrap">
-<div class="ph"><div class="eyebrow">04 · Revenue Estimates</div><h1>Revenue estimates</h1><p class="lede">Set the volume, price and spend assumptions and see annual revenue by line. Start from the bear, base or bull preset.</p></div>
+<div class="ph"><div class="eyebrow">03 · Revenue Estimates</div><h1>Revenue estimates</h1><p class="lede">Revenue built up by season, weekday versus weekend, and afternoon versus evening, with a gross margin on each line.</p></div>
 
 <section>
-<div class="btns" role="group" aria-label="Scenario presets">
-<button type="button" data-preset="Bear">Bear</button>
-<button type="button" data-preset="Base" aria-pressed="true">Base</button>
-<button type="button" data-preset="Bull">Bull</button>
-<button type="button" id="copy">Copy assumptions for Excel</button>
+<div class="two" style="align-items:end">
+<div class="form" style="grid-template-columns:repeat(auto-fill,minmax(170px,1fr))">
+<label for="price"><b>Golf price per round</b><input id="price" type="number" step="0.5" min="0" inputmode="decimal"><span>one price, all periods</span></label>
+<label for="events_n"><b>Private events per year</b><input id="events_n" type="number" step="1" min="0" inputmode="numeric"><span>birthdays, buyouts</span></label>
+<label for="event_avg"><b>Average event package</b><input id="event_avg" type="number" step="50" min="0" inputmode="decimal"><span>dollars</span></label>
 </div>
-<p class="note" id="copymsg" style="margin-top:8px">Edit any input. Your numbers stay in this browser. "Copy" puts them in the order of the Excel Assumptions sheet, column E (My case).</p>
+<div class="btns" style="justify-content:flex-end"><button type="button" id="reset">Reset to defaults</button><button type="button" id="copy">Copy period table for Excel</button></div>
+</div>
+<p class="note" id="copymsg" style="margin-top:10px">Edit any white box. Your numbers stay in this browser. Summer is Apr 1–Nov 30, winter Dec 1–Mar 31. Default days count Wed–Fri as weekdays and Sat–Sun as weekends in calendar 2027, closed Mon–Tue, holidays not removed.</p>
 </section>
+
+<section><h2>By season, day and daypart</h2>
+<div class="tw"><table class="grid">
+<thead><tr><th>Period</th><th class="n">Days / yr</th><th class="n">Hours</th><th class="n">Players / day</th><th class="n">Food $ / player</th><th class="n">Ice cream $ / player</th><th class="n">Bar $ / player</th><th class="n">Revenue / yr</th></tr></thead>
+<tbody id="ptab"></tbody></table></div>
+<p class="note" style="margin-top:8px">Players are per daypart per day (e.g. 150 players across a Saturday evening). Revenue = days × players × (golf price + food + ice cream + bar). Afternoon 12–5 pm (5 hrs), evening 5–11 pm (6 hrs). Days and hours here also drive staffing on <a href="opex.html">Ongoing Expenses</a>.</p>
+</section>
+
 <section><div class="two">
-<div><form class="form" id="f"></form></div>
-<div>
-<div class="eyebrow">Annual revenue</div>
+<div><h2>Totals and gross margin</h2>
+<div class="tw"><table class="grid">
+<thead><tr><th>Line</th><th class="n">Revenue</th><th class="n">Gross margin</th><th class="n">Gross profit</th></tr></thead>
+<tbody id="ttab"></tbody></table></div>
+<p class="note" id="gmnotes" style="margin-top:8px"></p></div>
+<div><div class="eyebrow">Annual revenue</div>
 <div class="big" id="total">$0</div>
 <div class="note" id="sub"></div>
 <div class="mix" id="mix" aria-hidden="true"></div>
 <div class="legend" id="legend"></div>
 <div class="tw" style="margin-top:16px"><table>
-<thead><tr><th>Line</th><th class="n">Annual</th><th class="n">Share</th></tr></thead>
-<tbody id="lines"></tbody></table></div>
-<div class="tw" style="margin-top:16px"><table>
 <thead><tr><th>Check</th><th class="n">Value</th></tr></thead>
-<tbody id="kpis"></tbody></table></div>
-</div></div></section>
-<section><h2>How the model works</h2>
-<ul class="plain">
-<li>Golf = players per day × days open × price, separately for daytime and night.</li>
-<li>Bar = golfer bar spend + bar-only guests (people who come for drinks and don't play).</li>
-<li>Food truck fees are what trucks pay us per day; their food sales are theirs.</li>
-<li>Prices are net of sales tax. Bear and bull presets bracket the base case.</li>
-</ul></section>
+<tbody id="kpis"></tbody></table></div></div>
+</div></section>
 <script>
-const FIELDS=[{"k": "days_open", "label": "Operating days per year", "group": "Calendar", "unit": "days"}, {"k": "day_players", "label": "Daytime players per day (families)", "group": "Golf volume", "unit": "players"}, {"k": "night_players", "label": "Night players per day (adults)", "group": "Golf volume", "unit": "players"}, {"k": "golf_day", "label": "Golf price, daytime (blended kid/adult)", "group": "Golf pricing", "unit": "$"}, {"k": "golf_night", "label": "Golf price, night", "group": "Golf pricing", "unit": "$"}, {"k": "ice_day", "label": "Ice cream spend per daytime player", "group": "Ice cream", "unit": "$"}, {"k": "ice_night", "label": "Ice cream spend per night player", "group": "Ice cream", "unit": "$"}, {"k": "bar_day", "label": "Bar spend per daytime player", "group": "Bar", "unit": "$"}, {"k": "bar_night", "label": "Bar spend per night player", "group": "Bar", "unit": "$"}, {"k": "baronly_n", "label": "Bar-only guests per night (no golf)", "group": "Bar", "unit": "guests"}, {"k": "baronly_spend", "label": "Spend per bar-only guest", "group": "Bar", "unit": "$"}, {"k": "events_n", "label": "Private events per year", "group": "Events + trucks", "unit": "events"}, {"k": "event_avg", "label": "Average event package", "group": "Events + trucks", "unit": "$"}, {"k": "trucks_n", "label": "Food trucks per operating day", "group": "Events + trucks", "unit": "trucks"}, {"k": "truck_fee", "label": "Fee per truck per day (paid to us)", "group": "Events + trucks", "unit": "$"}], SCEN={"Bear": {"days_open": 310, "day_players": 60, "night_players": 55, "golf_day": 10, "golf_night": 13, "ice_day": 4, "ice_night": 1, "bar_day": 2, "bar_night": 13, "baronly_n": 12, "baronly_spend": 13, "events_n": 30, "event_avg": 1200, "trucks_n": 1.5, "truck_fee": 60, "labor_factor": 0.85}, "Base": {"days_open": 330, "day_players": 90, "night_players": 90, "golf_day": 11, "golf_night": 14, "ice_day": 5, "ice_night": 1, "bar_day": 3, "bar_night": 16, "baronly_n": 25, "baronly_spend": 15, "events_n": 60, "event_avg": 1500, "trucks_n": 2, "truck_fee": 75, "labor_factor": 1.0}, "Bull": {"days_open": 340, "day_players": 125, "night_players": 135, "golf_day": 12, "golf_night": 16, "ice_day": 6, "ice_night": 1.5, "bar_day": 4, "bar_night": 19, "baronly_n": 45, "baronly_spend": 16, "events_n": 110, "event_avg": 1800, "trucks_n": 3, "truck_fee": 90, "labor_factor": 1.35}};
-const COLORS=['var(--turf)','var(--amber)','var(--flag)','var(--muted)','var(--ink)'];
-const f=document.getElementById('f');let g='';
-FIELDS.forEach(x=>{if(x.group!==g){g=x.group;f.insertAdjacentHTML('beforeend',`<div class="group-h">${g}</div>`)}
- f.insertAdjacentHTML('beforeend',`<label for="${x.k}"><b>${x.label}</b><input id="${x.k}" type="number" step="any" min="0" inputmode="decimal"><span>${x.unit==='$'?'dollars':x.unit}</span></label>`)});
-const fmt=v=>'$'+Math.round(v).toLocaleString('en-US');
-function load(p){FIELDS.forEach(x=>document.getElementById(x.k).value=p[x.k]);calc()}
-function vals(){const a={};FIELDS.forEach(x=>a[x.k]=parseFloat(document.getElementById(x.k).value)||0);return a}
-function calc(){const a=vals(),d=a.days_open,dp=a.day_players*d,np=a.night_players*d;
- const L={'Golf':dp*a.golf_day+np*a.golf_night,'Bar':dp*a.bar_day+np*a.bar_night+a.baronly_n*d*a.baronly_spend,
-  'Ice cream':dp*a.ice_day+np*a.ice_night,'Private events':a.events_n*a.event_avg,'Food truck fees':a.trucks_n*d*a.truck_fee};
- const t=Object.values(L).reduce((s,v)=>s+v,0);
- document.getElementById('total').textContent=fmt(t);
- document.getElementById('sub').textContent=`${Math.round(dp+np).toLocaleString('en-US')} rounds/yr · ${fmt(t/12)} per month average`;
- const keys=Object.keys(L);
- document.getElementById('mix').innerHTML=keys.map((k,i)=>`<span style="width:${t?L[k]/t*100:0}%;background:${COLORS[i]}"></span>`).join('');
- document.getElementById('legend').innerHTML=keys.map((k,i)=>`<span><i style="background:${COLORS[i]}"></i>${k}</span>`).join('');
- document.getElementById('lines').innerHTML=keys.map(k=>`<tr><td>${k}</td><td class="n">${fmt(L[k])}</td><td class="n">${t?(L[k]/t*100).toFixed(0):0}%</td></tr>`).join('')+`<tr class="total"><td>Total</td><td class="n">${fmt(t)}</td><td class="n">100%</td></tr>`;
- const r=dp+np;
- document.getElementById('kpis').innerHTML=[
-  ['Revenue per round played',r?fmt(t/r):'—'],
-  ['Average players per open day',Math.round(a.day_players+a.night_players)],
-  ['Peak-hour need at 35% of a day in 3 hrs',Math.round((a.day_players+a.night_players)*0.35/3)+' players/hr (cap ~85)'],
-  ['Bar share of revenue',t?(L['Bar']/t*100).toFixed(0)+'%':'—']].map(([k,v])=>`<tr><td>${k}</td><td class="n">${v}</td></tr>`).join('');
- try{localStorage.setItem('ramseur-rev',JSON.stringify(a))}catch(e){}
+const CFG={"periods": [{"season": "Summer", "daytype": "Weekday", "daypart": "Afternoon", "days": 104, "hours": 5, "label": "12-5 pm", "players": 40, "food": 6, "ice": 4, "bar": 3}, {"season": "Summer", "daytype": "Weekday", "daypart": "Evening", "days": 104, "hours": 6, "label": "5-11 pm", "players": 70, "food": 8, "ice": 1, "bar": 16}, {"season": "Summer", "daytype": "Weekend", "daypart": "Afternoon", "days": 70, "hours": 5, "label": "12-5 pm", "players": 140, "food": 6, "ice": 4, "bar": 3}, {"season": "Summer", "daytype": "Weekend", "daypart": "Evening", "days": 70, "hours": 6, "label": "5-11 pm", "players": 150, "food": 8, "ice": 1, "bar": 16}, {"season": "Winter", "daytype": "Weekday", "daypart": "Afternoon", "days": 53, "hours": 5, "label": "12-5 pm", "players": 15, "food": 6, "ice": 2, "bar": 3}, {"season": "Winter", "daytype": "Weekday", "daypart": "Evening", "days": 53, "hours": 6, "label": "5-11 pm", "players": 35, "food": 8, "ice": 1, "bar": 16}, {"season": "Winter", "daytype": "Weekend", "daypart": "Afternoon", "days": 34, "hours": 5, "label": "12-5 pm", "players": 60, "food": 6, "ice": 2, "bar": 3}, {"season": "Winter", "daytype": "Weekend", "daypart": "Evening", "days": 34, "hours": 6, "label": "5-11 pm", "players": 80, "food": 8, "ice": 1, "bar": 16}], "price": 12.0, "events_n": 60, "event_avg": 1500, "gm": {"Golf": 0.95, "Food": 0.15, "Ice cream": 0.7, "Bar": 0.76, "Private events": 0.75}, "gm_note": {"Golf": "Course upkeep sits in fixed costs; Puttshack cites ~95% on mini golf", "Food": "Food trucks keep their sales; 15% = our commission. Use ~65% if we run food ourselves", "Ice cream": "~30% product cost", "Bar": "~24% pour cost", "Private events": "Food + drink in packages"}};
+const LINES=['Golf','Food','Ice cream','Bar','Private events'];
+const COLORS=['var(--turf)','var(--amber)','var(--flag)','var(--ink)','var(--muted)'];
+const fmt=v=>'$'+Math.round(v).toLocaleString('en-US'), num=v=>Math.round(v).toLocaleString('en-US');
+const inp=(id,v,step)=>`<input id="${id}" type="number" min="0" step="${step}" inputmode="decimal" value="${v}" aria-label="${id}">`;
+function defaults(){return JSON.parse(JSON.stringify({periods:CFG.periods,price:CFG.price,events_n:CFG.events_n,event_avg:CFG.event_avg,gm:CFG.gm}))}
+let S=defaults();
+try{const sv=JSON.parse(localStorage.getItem('ramseur-rev2'));if(sv&&sv.periods&&sv.periods.length===8)S=sv}catch(e){}
+function build(){
+ const t=document.getElementById('ptab');let h='',season='';
+ S.periods.forEach((p,i)=>{if(p.season!==season){season=p.season;h+=`<tr class="sub"><td colspan="8"><b>${season}</b> · ${season==='Summer'?'Apr 1 – Nov 30':'Dec 1 – Mar 31'}</td></tr>`}
+  h+=`<tr><td>${p.daytype} ${p.daypart.toLowerCase()}<div class="note">${p.daytype==='Weekday'?'Wed–Fri':'Sat–Sun'} · ${p.label}</div></td>
+  <td class="n">${inp('d'+i,p.days,1)}</td><td class="n">${p.hours}</td><td class="n">${inp('p'+i,p.players,5)}</td>
+  <td class="n">${inp('f'+i,p.food,0.5)}</td><td class="n">${inp('i'+i,p.ice,0.5)}</td><td class="n">${inp('b'+i,p.bar,0.5)}</td><td class="n" id="r${i}"></td></tr>`;
+  if(i===3||i===7)h+=`<tr class="total"><td>${season} total</td><td class="n" id="sd${i}"></td><td></td><td class="n" id="sp${i}"></td><td></td><td></td><td></td><td class="n" id="sr${i}"></td></tr>`});
+ t.innerHTML=h;
+ document.getElementById('ttab').innerHTML=LINES.map((k,j)=>`<tr><td>${k}</td><td class="n" id="lv${j}"></td><td class="n">${inp('gm'+j,Math.round(S.gm[k]*100),1)} %</td><td class="n" id="lg${j}"></td></tr>`).join('')+
+  `<tr class="total"><td>Total</td><td class="n" id="lvt"></td><td class="n" id="lgm"></td><td class="n" id="lgt"></td></tr>`;
+ document.getElementById('gmnotes').innerHTML=LINES.map(k=>`<b>${k}:</b> ${CFG.gm_note[k]}`).join('<br>');
+ document.getElementById('price').value=S.price;document.getElementById('events_n').value=S.events_n;document.getElementById('event_avg').value=S.event_avg;
 }
-f.addEventListener('input',()=>{document.querySelectorAll('[data-preset]').forEach(b=>b.setAttribute('aria-pressed','false'));calc()});
-document.querySelectorAll('[data-preset]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-preset]').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));load(SCEN[b.dataset.preset])}));
-document.getElementById('copy').addEventListener('click',()=>{const a=vals();const txt=FIELDS.map(x=>a[x.k]).join('\n');const msg=document.getElementById('copymsg');
- const ok=()=>msg.textContent='Copied. In Excel, click Assumptions!E5 and paste.';
- try{navigator.clipboard.writeText(txt).then(ok,()=>{msg.textContent='Copy blocked here. Values in order: '+FIELDS.map(x=>a[x.k]).join(', ')})}catch(e){msg.textContent='Values in order: '+FIELDS.map(x=>a[x.k]).join(', ')}});
-let saved=null;try{saved=JSON.parse(localStorage.getItem('ramseur-rev'))}catch(e){}
-if(saved){document.querySelectorAll('[data-preset]').forEach(b=>b.setAttribute('aria-pressed','false'));load(Object.assign({},SCEN.Base,saved))}else load(SCEN.Base);
+const val=id=>parseFloat(document.getElementById(id).value)||0;
+function read(){S.price=val('price');S.events_n=val('events_n');S.event_avg=val('event_avg');
+ S.periods.forEach((p,i)=>{p.days=val('d'+i);p.players=val('p'+i);p.food=val('f'+i);p.ice=val('i'+i);p.bar=val('b'+i)});
+ LINES.forEach((k,j)=>S.gm[k]=val('gm'+j)/100)}
+function calc(){
+ const L={'Golf':0,'Food':0,'Ice cream':0,'Bar':0,'Private events':S.events_n*S.event_avg};let rounds=0,hours=0,daysTot=0;const seas={Summer:0,Winter:0};
+ let sd=0,sp=0,sr=0;
+ S.periods.forEach((p,i)=>{const n=p.days*p.players;rounds+=n;hours+=p.days*p.hours;
+  const g=n*S.price,f=n*p.food,ic=n*p.ice,b=n*p.bar,r=g+f+ic+b;
+  L['Golf']+=g;L['Food']+=f;L['Ice cream']+=ic;L['Bar']+=b;seas[p.season]+=r;
+  document.getElementById('r'+i).textContent=fmt(r);
+  if(p.daypart==='Afternoon')sd+=p.days;sp+=n;sr+=r;
+  if(i===3||i===7){document.getElementById('sd'+i).textContent=num(sd);document.getElementById('sp'+i).textContent=num(sp)+' rounds';document.getElementById('sr'+i).textContent=fmt(sr);daysTot+=sd;sd=0;sp=0;sr=0}});
+ const t=LINES.reduce((s,k)=>s+L[k],0);let gp=0;
+ LINES.forEach((k,j)=>{const g=L[k]*S.gm[k];gp+=g;document.getElementById('lv'+j).textContent=fmt(L[k]);document.getElementById('lg'+j).textContent=fmt(g)});
+ document.getElementById('lvt').textContent=fmt(t);document.getElementById('lgt').textContent=fmt(gp);document.getElementById('lgm').textContent=t?(gp/t*100).toFixed(1)+'%':'—';
+ document.getElementById('total').textContent=fmt(t);
+ document.getElementById('sub').textContent=`${num(rounds)} rounds/yr · gross profit ${fmt(gp)} (${t?(gp/t*100).toFixed(0):0}%)`;
+ document.getElementById('mix').innerHTML=LINES.map((k,i)=>`<span style="width:${t?L[k]/t*100:0}%;background:${COLORS[i]}"></span>`).join('');
+ document.getElementById('legend').innerHTML=LINES.map((k,i)=>`<span><i style="background:${COLORS[i]}"></i>${k}</span>`).join('');
+ const pk=S.periods[3];
+ document.getElementById('kpis').innerHTML=[
+  ['Open days per year',num(daysTot)],['Open hours per year',num(hours)],
+  ['Revenue per round',rounds?'$'+(t/rounds).toFixed(2):'—'],
+  ['Summer share of revenue',t?((seas.Summer)/(seas.Summer+seas.Winter)*100).toFixed(0)+'%':'—'],
+  ['Summer Saturday/Sunday night players per hour',(pk.players/pk.hours).toFixed(0)+' (course cap ~85)']
+ ].map(([k,v])=>`<tr><td>${k}</td><td class="n">${v}</td></tr>`).join('');
+ try{localStorage.setItem('ramseur-rev2',JSON.stringify(S))}catch(e){}
+}
+build();calc();
+document.addEventListener('input',e=>{if(e.target.matches('input')){read();calc()}});
+document.getElementById('reset').addEventListener('click',()=>{S=defaults();build();calc();document.getElementById('copymsg').textContent='Defaults restored.'});
+document.getElementById('copy').addEventListener('click',()=>{const txt=S.periods.map(p=>[p.days,p.hours,p.players,p.food,p.ice,p.bar].join('\t')).join('\n');const msg=document.getElementById('copymsg');
+ const fb=()=>{msg.textContent='Copy is blocked here. Type the values into Assumptions!D8:I15 in Excel.'};
+ try{navigator.clipboard.writeText(txt).then(()=>msg.textContent='Copied 8 rows. In Excel click Assumptions!D8 and paste. Set golf price, events and margins in their own cells.',fb)}catch(e){fb()}});
 </script>
 
 </main>
