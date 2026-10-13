@@ -31,7 +31,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 
 /* scorecard nav */
 .card-nav{overflow-x:auto;border-bottom:1px solid var(--line);background:var(--surface)}
-.card-nav ol{list-style:none;margin:0 auto;padding:0 20px;max-width:1080px;display:grid;grid-template-columns:repeat(8,minmax(100px,1fr))}
+.card-nav ol{list-style:none;margin:0 auto;padding:0 20px;max-width:1080px;display:grid;grid-template-columns:repeat(7,minmax(108px,1fr))}
 .card-nav li{border-left:1px solid var(--line)}
 .card-nav li:last-child{border-right:1px solid var(--line)}
 .card-nav a{display:flex;flex-direction:column;gap:2px;padding:8px 12px 10px;text-decoration:none;color:var(--ink)}
@@ -122,3 +122,12 @@ svg text{font-family:var(--f-body)}
 .grid th{white-space:normal;vertical-align:bottom}
 .grid input{width:66px}
 .grid td,.grid th{padding:7px 8px}
+.ph{position:relative}
+.xl{float:right;margin-top:4px;font:600 13px var(--f-body);color:var(--turf-ink);background:var(--turf);padding:8px 14px;border-radius:4px;text-decoration:none}
+.xl:hover{opacity:.9}
+.dlabel{font:700 12px var(--f-mono);letter-spacing:.08em;color:var(--alert);margin:-4px 0 10px}
+.grid tr.dstart td{border-top:2px solid var(--line)}
+.adcard{display:flex;flex-direction:column;gap:4px;padding:16px 18px;border:2px solid var(--turf);border-radius:6px;text-decoration:none;color:var(--ink);background:var(--surface)}
+.adcard b{font:750 20px var(--f-display);color:var(--turf)}
+.adcard span:last-child{color:var(--muted);font-size:14px}
+.adcard:hover{background:var(--turf-soft)}

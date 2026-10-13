@@ -11,7 +11,7 @@ Static HTML business plan for a mini golf course + bar at 806 E Ramseur St, Durh
 | Labor (editable) | `labor.html` |
 | P&L (live from the tabs above) | `pnl.html` |
 | Issues | `issues.html` |
-| GM Job Ad | `gm-ad.html` |
+| GM Job Ad (linked from Labor, not a tab) | `gm-ad.html` |
 
 Edits on the editable tabs are saved in the viewer's browser and flow into the P&L tab.
 

@@ -1,26 +1,27 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>806 Ramseur Revenue Estimates</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=JetBrains+Mono:wght@400;600&family=Public+Sans:wght@400;600;700&display=swap"><link rel="stylesheet" href="styles.css"></head><body>
 <header class="mast"><div class="wrap"><div class="brand">806 E Ramseur Mini Golf + Bar<small>Business plan workbook · Durham, NC 27701</small></div><div class="meta">Updated Oct 13, 2026</div></div></header>
-<nav class="card-nav" aria-label="Plan sections"><ol><li><a href="index.html"><span class="no">01</span><span class="nm">Property</span></a></li><li><a href="capex.html"><span class="no">02</span><span class="nm">Initial Capex</span></a></li><li><a href="competition.html"><span class="no">03</span><span class="nm">Competitive Analysis</span></a></li><li><a href="revenue.html" aria-current="page"><span class="no">04</span><span class="nm">Revenue Estimates</span></a></li><li><a href="labor.html"><span class="no">05</span><span class="nm">Labor</span></a></li><li><a href="pnl.html"><span class="no">06</span><span class="nm">P&amp;L</span></a></li><li><a href="issues.html"><span class="no">07</span><span class="nm">Issues</span></a></li><li><a href="gm-ad.html"><span class="no">08</span><span class="nm">GM Job Ad</span></a></li></ol></nav>
+<nav class="card-nav" aria-label="Plan sections"><ol><li><a href="index.html"><span class="no">01</span><span class="nm">Property</span></a></li><li><a href="capex.html"><span class="no">02</span><span class="nm">Initial Capex</span></a></li><li><a href="competition.html"><span class="no">03</span><span class="nm">Competitive Analysis</span></a></li><li><a href="revenue.html" aria-current="page"><span class="no">04</span><span class="nm">Revenue Estimates</span></a></li><li><a href="labor.html"><span class="no">05</span><span class="nm">Labor</span></a></li><li><a href="pnl.html"><span class="no">06</span><span class="nm">P&amp;L</span></a></li><li><a href="issues.html"><span class="no">07</span><span class="nm">Issues</span></a></li></ol></nav>
 <main class="wrap">
-<div class="ph"><div class="eyebrow">04 · Revenue Estimates</div><h1>Revenue estimates</h1><p class="lede">Revenue built up by season, weekday versus weekend, and afternoon versus evening, with a gross margin on each line.</p></div>
+<div class="ph"><a class="xl" href="806-Ramseur-PnL.xlsx" download>⤓ Download Excel model</a><div class="eyebrow">04 · Revenue Estimates</div><h1>Revenue estimates</h1><p class="lede">Revenue built up by season, day of the week, and afternoon versus evening, with a gross margin on each line.</p></div>
 
 <section>
 <div class="two" style="align-items:end">
-<div class="form" style="grid-template-columns:repeat(auto-fill,minmax(170px,1fr))">
+<div class="form" style="grid-template-columns:repeat(3,minmax(0,1fr))">
 <label for="price"><b>Golf price per round</b><input id="price" type="number" step="0.5" min="0" inputmode="decimal"><span>one price, all periods</span></label>
-<label for="events_n"><b>Private events per year</b><input id="events_n" type="number" step="1" min="0" inputmode="numeric"><span>birthdays, buyouts</span></label>
+<label for="events_n"><b># of private events / yr</b><input id="events_n" type="number" step="1" min="0" inputmode="numeric"><span>birthdays, buyouts</span></label>
 <label for="event_avg"><b>Average event package</b><input id="event_avg" type="number" step="50" min="0" inputmode="decimal"><span>dollars</span></label>
 </div>
 <div class="btns" style="justify-content:flex-end"><button type="button" id="reset">Reset to defaults</button><button type="button" id="copy">Copy period table for Excel</button></div>
 </div>
-<p class="alert" id="copymsg">Edit any white box. Your numbers stay in this browser. Summer is Apr 1–Nov 30, winter Dec 1–Mar 31. Default days count Wed–Fri as weekdays and Sat–Sun as weekends in calendar 2027, closed Mon–Tue, holidays not removed.</p>
+<p class="alert" id="copymsg">Edit any white box. Your numbers stay in this browser. Summer is Apr 1–Nov 30, winter Dec 1–Mar 31. Days per year count each weekday in calendar 2027; holidays not removed. Monday and Tuesday default to 0 players (closed); enter players to open them.</p>
 </section>
 
 <section><h2>By season, day and daypart</h2>
+<p class="dlabel">DEFAULT ESTIMATES below input boxes</p>
 <div class="tw"><table class="grid">
-<thead><tr><th>Period</th><th class="n">Days / yr</th><th class="n">Hrs</th><th class="n">Players / day</th><th class="n">Food $ / player</th><th class="n">Ice cream $ / player</th><th class="n">Bar $ / player</th><th class="n">Revenue / yr</th></tr></thead>
+<thead><tr><th>Day</th><th>Daypart</th><th class="n">Days / yr</th><th class="n">Players / day</th><th class="n">Food $ / player</th><th class="n">Ice cream $ / player</th><th class="n">Bar $ / player</th><th class="n">Revenue / yr</th></tr></thead>
 <tbody id="ptab"></tbody></table></div>
-<p class="note" style="margin-top:8px">Gray numbers under each box are the <b>default estimates</b>. Players are per daypart per day (e.g. 100 players across a Saturday evening). Revenue = days × players × (golf price + food + ice cream + bar). Afternoon 12–5 pm (5 hrs), evening 5–11 pm (6 hrs). Days and hours here also feed the <a href="labor.html">Labor</a> tab.</p>
+<p class="note" style="margin-top:8px">Players are per daypart on that day (e.g. 100 players across a Saturday evening). Revenue = days × players × (golf price + food + ice cream + bar). Players feed the <a href="labor.html">Labor</a> tab.</p>
 </section>
 
 <section><h2>Totals from the inputs above</h2>
@@ -36,26 +37,32 @@
 <div class="note" id="sub"></div>
 <div class="mix" id="mix" aria-hidden="true"></div>
 <div class="legend" id="legend"></div>
-<div class="tw" style="margin-top:16px"><table>
+<h3 style="margin-top:18px">People on premises and average spend</h3>
+<div class="tw"><table>
+<thead><tr><th></th><th class="n">Weekdays (Mon–Fri)</th><th class="n">Weekends (Sat–Sun)</th></tr></thead>
+<tbody id="seg"></tbody></table></div>
+<div class="tw" style="margin-top:12px"><table>
 <thead><tr><th>Check</th><th class="n">Value</th></tr></thead>
 <tbody id="kpis"></tbody></table></div></div>
 </div></section>
 <script>
-const CFG={"periods": [{"season": "Summer", "daytype": "Weekday", "daypart": "Afternoon", "days": 104, "hours": 5, "label": "12-5 pm", "players": 30, "food": 6, "ice": 4, "bar": 0}, {"season": "Summer", "daytype": "Weekday", "daypart": "Evening", "days": 104, "hours": 6, "label": "5-11 pm", "players": 60, "food": 8, "ice": 1, "bar": 5}, {"season": "Summer", "daytype": "Weekend", "daypart": "Afternoon", "days": 70, "hours": 5, "label": "12-5 pm", "players": 80, "food": 6, "ice": 4, "bar": 5}, {"season": "Summer", "daytype": "Weekend", "daypart": "Evening", "days": 70, "hours": 6, "label": "5-11 pm", "players": 100, "food": 8, "ice": 1, "bar": 16}, {"season": "Winter", "daytype": "Weekday", "daypart": "Afternoon", "days": 53, "hours": 5, "label": "12-5 pm", "players": 15, "food": 6, "ice": 0, "bar": 0}, {"season": "Winter", "daytype": "Weekday", "daypart": "Evening", "days": 53, "hours": 6, "label": "5-11 pm", "players": 20, "food": 8, "ice": 0, "bar": 5}, {"season": "Winter", "daytype": "Weekend", "daypart": "Afternoon", "days": 34, "hours": 5, "label": "12-5 pm", "players": 30, "food": 6, "ice": 0, "bar": 5}, {"season": "Winter", "daytype": "Weekend", "daypart": "Evening", "days": 34, "hours": 6, "label": "5-11 pm", "players": 60, "food": 8, "ice": 0, "bar": 5}], "price": 12.0, "events_n": 60, "event_avg": 1500, "gm": {"Golf": 0.95, "Food": 0.15, "Ice cream": 0.7, "Bar": 0.76, "Private events": 0.75}, "gm_note": {"Golf": "Course upkeep sits in fixed costs; Puttshack cites ~95% on mini golf", "Food": "Food trucks keep their sales; 15% = our commission. Use ~65% if we run food ourselves", "Ice cream": "~30% product cost", "Bar": "~24% pour cost", "Private events": "Food + drink in packages"}};
+const CFG={"periods": [{"season": "Summer", "day": "Monday", "daypart": "Afternoon", "days": 35, "hours": 5, "label": "12-5 pm", "players": 0, "food": 6, "ice": 4, "bar": 0}, {"season": "Summer", "day": "Monday", "daypart": "Evening", "days": 35, "hours": 6, "label": "5-11 pm", "players": 0, "food": 8, "ice": 1, "bar": 5}, {"season": "Summer", "day": "Tuesday", "daypart": "Afternoon", "days": 35, "hours": 5, "label": "12-5 pm", "players": 0, "food": 6, "ice": 4, "bar": 0}, {"season": "Summer", "day": "Tuesday", "daypart": "Evening", "days": 35, "hours": 6, "label": "5-11 pm", "players": 0, "food": 8, "ice": 1, "bar": 5}, {"season": "Summer", "day": "Wednesday", "daypart": "Afternoon", "days": 34, "hours": 5, "label": "12-5 pm", "players": 30, "food": 6, "ice": 4, "bar": 0}, {"season": "Summer", "day": "Wednesday", "daypart": "Evening", "days": 34, "hours": 6, "label": "5-11 pm", "players": 60, "food": 8, "ice": 1, "bar": 5}, {"season": "Summer", "day": "Thursday", "daypart": "Afternoon", "days": 35, "hours": 5, "label": "12-5 pm", "players": 30, "food": 6, "ice": 4, "bar": 0}, {"season": "Summer", "day": "Thursday", "daypart": "Evening", "days": 35, "hours": 6, "label": "5-11 pm", "players": 60, "food": 8, "ice": 1, "bar": 5}, {"season": "Summer", "day": "Friday", "daypart": "Afternoon", "days": 35, "hours": 5, "label": "12-5 pm", "players": 30, "food": 6, "ice": 4, "bar": 0}, {"season": "Summer", "day": "Friday", "daypart": "Evening", "days": 35, "hours": 6, "label": "5-11 pm", "players": 60, "food": 8, "ice": 1, "bar": 5}, {"season": "Summer", "day": "Saturday", "daypart": "Afternoon", "days": 35, "hours": 5, "label": "12-5 pm", "players": 80, "food": 6, "ice": 4, "bar": 5}, {"season": "Summer", "day": "Saturday", "daypart": "Evening", "days": 35, "hours": 6, "label": "5-11 pm", "players": 100, "food": 8, "ice": 1, "bar": 16}, {"season": "Summer", "day": "Sunday", "daypart": "Afternoon", "days": 35, "hours": 5, "label": "12-5 pm", "players": 80, "food": 6, "ice": 4, "bar": 5}, {"season": "Summer", "day": "Sunday", "daypart": "Evening", "days": 35, "hours": 6, "label": "5-11 pm", "players": 100, "food": 8, "ice": 1, "bar": 16}, {"season": "Winter", "day": "Monday", "daypart": "Afternoon", "days": 17, "hours": 5, "label": "12-5 pm", "players": 0, "food": 6, "ice": 0, "bar": 0}, {"season": "Winter", "day": "Monday", "daypart": "Evening", "days": 17, "hours": 6, "label": "5-11 pm", "players": 0, "food": 8, "ice": 0, "bar": 5}, {"season": "Winter", "day": "Tuesday", "daypart": "Afternoon", "days": 17, "hours": 5, "label": "12-5 pm", "players": 0, "food": 6, "ice": 0, "bar": 0}, {"season": "Winter", "day": "Tuesday", "daypart": "Evening", "days": 17, "hours": 6, "label": "5-11 pm", "players": 0, "food": 8, "ice": 0, "bar": 5}, {"season": "Winter", "day": "Wednesday", "daypart": "Afternoon", "days": 18, "hours": 5, "label": "12-5 pm", "players": 15, "food": 6, "ice": 0, "bar": 0}, {"season": "Winter", "day": "Wednesday", "daypart": "Evening", "days": 18, "hours": 6, "label": "5-11 pm", "players": 20, "food": 8, "ice": 0, "bar": 5}, {"season": "Winter", "day": "Thursday", "daypart": "Afternoon", "days": 17, "hours": 5, "label": "12-5 pm", "players": 15, "food": 6, "ice": 0, "bar": 0}, {"season": "Winter", "day": "Thursday", "daypart": "Evening", "days": 17, "hours": 6, "label": "5-11 pm", "players": 20, "food": 8, "ice": 0, "bar": 5}, {"season": "Winter", "day": "Friday", "daypart": "Afternoon", "days": 18, "hours": 5, "label": "12-5 pm", "players": 15, "food": 6, "ice": 0, "bar": 0}, {"season": "Winter", "day": "Friday", "daypart": "Evening", "days": 18, "hours": 6, "label": "5-11 pm", "players": 20, "food": 8, "ice": 0, "bar": 5}, {"season": "Winter", "day": "Saturday", "daypart": "Afternoon", "days": 17, "hours": 5, "label": "12-5 pm", "players": 30, "food": 6, "ice": 0, "bar": 5}, {"season": "Winter", "day": "Saturday", "daypart": "Evening", "days": 17, "hours": 6, "label": "5-11 pm", "players": 60, "food": 8, "ice": 0, "bar": 5}, {"season": "Winter", "day": "Sunday", "daypart": "Afternoon", "days": 17, "hours": 5, "label": "12-5 pm", "players": 30, "food": 6, "ice": 0, "bar": 5}, {"season": "Winter", "day": "Sunday", "daypart": "Evening", "days": 17, "hours": 6, "label": "5-11 pm", "players": 60, "food": 8, "ice": 0, "bar": 5}], "price": 12.0, "events_n": 20, "event_avg": 500, "gm": {"Golf": 0.95, "Food": 0.15, "Ice cream": 0.7, "Bar": 0.76, "Private events": 0.75}, "gm_note": {"Golf": "Course upkeep sits in fixed costs; Puttshack cites ~95% on mini golf", "Food": "Food trucks keep their sales; 15% = our commission. Use ~65% if we run food ourselves", "Ice cream": "~30% product cost", "Bar": "~24% pour cost", "Private events": "Food + drink in packages"}};
 const LINES=['Golf','Food','Ice cream','Bar','Private events'];
 const COLORS=['var(--turf)','var(--amber)','var(--flag)','var(--ink)','var(--muted)'];
+const WEEKEND=['Saturday','Sunday'];
 const fmt=v=>'$'+Math.round(v).toLocaleString('en-US'), num=v=>Math.round(v).toLocaleString('en-US');
 const inp=(id,v,step,d)=>`<input id="${id}" type="number" min="0" step="${step}" inputmode="decimal" value="${v}" aria-label="${id}">`+(d===undefined?'':`<div class="dflt">${d}</div>`);
 function defaults(){return JSON.parse(JSON.stringify({periods:CFG.periods,price:CFG.price,events_n:CFG.events_n,event_avg:CFG.event_avg,gm:CFG.gm}))}
 let S=defaults();
-try{const sv=JSON.parse(localStorage.getItem('ramseur-rev3'));if(sv&&sv.periods&&sv.periods.length===8)S=sv}catch(e){}
+try{const sv=JSON.parse(localStorage.getItem('ramseur-rev4'));if(sv&&sv.periods&&sv.periods.length===CFG.periods.length)S=sv}catch(e){}
 function build(){
  const t=document.getElementById('ptab');let h='',season='';
  S.periods.forEach((p,i)=>{const D=CFG.periods[i];if(p.season!==season){season=p.season;h+=`<tr class="sub"><td colspan="8"><b>${season}</b> · ${season==='Summer'?'Apr 1 – Nov 30':'Dec 1 – Mar 31'}</td></tr>`}
-  h+=`<tr><td>${p.daytype} ${p.daypart.toLowerCase()}<div class="note">${p.daytype==='Weekday'?'Wed–Fri':'Sat–Sun'} · ${p.label}</div></td>
-  <td class="n">${inp('d'+i,p.days,1,D.days)}</td><td class="n">${p.hours}</td><td class="n">${inp('p'+i,p.players,5,D.players)}</td>
+  const first=p.daypart==='Afternoon';
+  h+=`<tr${first?' class="dstart"':''}><td>${first?'<b>'+p.day+'</b>':''}</td><td>${p.daypart}<div class="note">${p.label}</div></td>
+  <td class="n">${inp('d'+i,p.days,1,D.days)}</td><td class="n">${inp('p'+i,p.players,5,D.players)}</td>
   <td class="n">${inp('f'+i,p.food,0.5,D.food)}</td><td class="n">${inp('i'+i,p.ice,0.5,D.ice)}</td><td class="n">${inp('b'+i,p.bar,0.5,D.bar)}</td><td class="n" id="r${i}"></td></tr>`;
-  if(i===3||i===7)h+=`<tr class="total"><td>${season} total</td><td class="n" id="sd${i}"></td><td></td><td class="n" id="sp${i}"></td><td></td><td></td><td></td><td class="n" id="sr${i}"></td></tr>`});
+  if(i===13||i===27)h+=`<tr class="total"><td colspan="2">${season} total</td><td></td><td class="n" id="sp${i}"></td><td></td><td></td><td></td><td class="n" id="sr${i}"></td></tr>`});
  t.innerHTML=h;
  document.getElementById('ttab').innerHTML=LINES.map((k,j)=>`<tr><td>${k}</td><td class="n" id="lv${j}"></td><td class="n">${inp('gm'+j,Math.round(S.gm[k]*100),1,Math.round(CFG.gm[k]*100)+'%')}</td><td class="n" id="lg${j}"></td></tr>`).join('')+
   `<tr class="total"><td>Total</td><td class="n" id="lvt"></td><td class="n" id="lgm"></td><td class="n" id="lgt"></td></tr>`;
@@ -68,14 +75,14 @@ function read(){S.price=val('price');S.events_n=val('events_n');S.event_avg=val(
  S.periods.forEach((p,i)=>{p.days=val('d'+i);p.players=val('p'+i);p.food=val('f'+i);p.ice=val('i'+i);p.bar=val('b'+i)});
  LINES.forEach((k,j)=>S.gm[k]=val('gm'+j)/100)}
 function calc(){
- const L={'Golf':0,'Food':0,'Ice cream':0,'Bar':0,'Private events':S.events_n*S.event_avg};let rounds=0,hours=0,daysTot=0;const seas={Summer:0,Winter:0};
- let sd=0,sp=0,sr=0;
- S.periods.forEach((p,i)=>{const n=p.days*p.players;rounds+=n;hours+=p.days*p.hours;
+ const L={'Golf':0,'Food':0,'Ice cream':0,'Bar':0,'Private events':S.events_n*S.event_avg};let rounds=0,hours=0;const seas={Summer:0,Winter:0};
+ const seg={wd:{n:0,r:0,days:0},we:{n:0,r:0,days:0}};let sp=0,sr=0;
+ S.periods.forEach((p,i)=>{const n=p.days*p.players;rounds+=n;if(p.players>0)hours+=p.days*p.hours;
   const g=n*S.price,f=n*p.food,ic=n*p.ice,b=n*p.bar,r=g+f+ic+b;
   L['Golf']+=g;L['Food']+=f;L['Ice cream']+=ic;L['Bar']+=b;seas[p.season]+=r;
-  document.getElementById('r'+i).textContent=fmt(r);
-  if(p.daypart==='Afternoon')sd+=p.days;sp+=n;sr+=r;
-  if(i===3||i===7){document.getElementById('sd'+i).textContent=num(sd);document.getElementById('sp'+i).textContent=num(sp)+' rounds';document.getElementById('sr'+i).textContent=fmt(sr);daysTot+=sd;sd=0;sp=0;sr=0}});
+  const k=WEEKEND.includes(p.day)?'we':'wd';seg[k].n+=n;seg[k].r+=r;if(p.daypart==='Afternoon'&&(p.players>0||S.periods[i+1].players>0))seg[k].days+=p.days;
+  document.getElementById('r'+i).textContent=fmt(r);sp+=n;sr+=r;
+  if(i===13||i===27){document.getElementById('sp'+i).textContent=num(sp)+' rounds';document.getElementById('sr'+i).textContent=fmt(sr);sp=0;sr=0}});
  const t=LINES.reduce((s,k)=>s+L[k],0);let gp=0;
  LINES.forEach((k,j)=>{const g=L[k]*S.gm[k];gp+=g;document.getElementById('lv'+j).textContent=fmt(L[k]);document.getElementById('lg'+j).textContent=fmt(g)});
  document.getElementById('lvt').textContent=fmt(t);document.getElementById('lgt').textContent=fmt(gp);document.getElementById('lgm').textContent=t?(gp/t*100).toFixed(1)+'%':'—';
@@ -83,21 +90,28 @@ function calc(){
  document.getElementById('sub').textContent=`${num(rounds)} rounds/yr · gross profit ${fmt(gp)} (${t?(gp/t*100).toFixed(0):0}%)`;
  document.getElementById('mix').innerHTML=LINES.map((k,i)=>`<span style="width:${t?L[k]/t*100:0}%;background:${COLORS[i]}"></span>`).join('');
  document.getElementById('legend').innerHTML=LINES.map((k,i)=>`<span><i style="background:${COLORS[i]}"></i>${k}</span>`).join('');
- const pk=S.periods[3];
+ const c=(o,f)=>f(o);const W=seg.wd,E=seg.we;
+ document.getElementById('seg').innerHTML=[
+  ['People on premises per year',num(W.n),num(E.n)],
+  ['Average per open day',W.days?num(W.n/W.days):'—',E.days?num(E.n/E.days):'—'],
+  ['Open days per year',num(W.days),num(E.days)],
+  ['Average spend per person',W.n?'$'+(W.r/W.n).toFixed(2):'—',E.n?'$'+(E.r/E.n).toFixed(2):'—'],
+  ['Revenue (excl. private events)',fmt(W.r),fmt(E.r)]].map(([a,b,c2])=>`<tr><td>${a}</td><td class="n">${b}</td><td class="n">${c2}</td></tr>`).join('');
+ const pk=S.periods.find(p=>p.season==='Summer'&&p.day==='Saturday'&&p.daypart==='Evening');
  document.getElementById('kpis').innerHTML=[
-  ['Open days per year',num(daysTot)],['Open hours per year',num(hours)],
+  ['Open hours per year',num(hours)],
   ['Revenue per round',rounds?'$'+(t/rounds).toFixed(2):'—'],
   ['Summer share of revenue',t?((seas.Summer)/(seas.Summer+seas.Winter)*100).toFixed(0)+'%':'—'],
-  ['Summer Saturday/Sunday night players per hour',(pk.players/pk.hours).toFixed(0)+' (course cap ~85)']
+  ['Summer Saturday night players per hour',(pk.players/pk.hours).toFixed(0)+' (course cap ~85)']
  ].map(([k,v])=>`<tr><td>${k}</td><td class="n">${v}</td></tr>`).join('');
- try{localStorage.setItem('ramseur-rev3',JSON.stringify(S))}catch(e){}
+ try{localStorage.setItem('ramseur-rev4',JSON.stringify(S))}catch(e){}
 }
 build();calc();
 document.addEventListener('input',e=>{if(e.target.matches('input')){read();calc()}});
 document.getElementById('reset').addEventListener('click',()=>{S=defaults();build();calc();document.getElementById('copymsg').textContent='Defaults restored.'});
 document.getElementById('copy').addEventListener('click',()=>{const txt=S.periods.map(p=>[p.days,p.hours,p.players,p.food,p.ice,p.bar].join('\t')).join('\n');const msg=document.getElementById('copymsg');
- const fb=()=>{msg.textContent='Copy is blocked here. Type the values into Assumptions!D8:I15 in Excel.'};
- try{navigator.clipboard.writeText(txt).then(()=>msg.textContent='Copied 8 rows. In Excel click Assumptions!D8 and paste. Set golf price, events and margins in their own cells.',fb)}catch(e){fb()}});
+ const fb=()=>{msg.textContent='Copy is blocked here. Type the values into Assumptions!D8:I35 in Excel.'};
+ try{navigator.clipboard.writeText(txt).then(()=>msg.textContent='Copied 28 rows. In Excel click Assumptions!D8 and paste. Set golf price, events and margins in their own cells.',fb)}catch(e){fb()}});
 </script>
 
 </main>
