@@ -8,7 +8,7 @@
 <div class="fact"><div class="k">Total project cost</div><div class="v" id="k_tot"></div><div class="s">Incl. contingency</div></div>
 <div class="fact"><div class="k">Acquisition</div><div class="v" id="k_acq"></div><div class="s">Price, closing, due diligence</div></div>
 <div class="fact"><div class="k">Build-out + opening</div><div class="v" id="k_bld"></div><div class="s" id="k_bld_s"></div></div>
-<div class="fact"><div class="k">Equity needed</div><div class="v" id="k_eq"></div><div class="s" id="k_eq_s"></div></div>
+<div class="fact"><div class="k">Capex excl. purchase price</div><div class="v" id="k_eq"></div><div class="s" id="k_eq_s"></div></div>
 </div></section>
 <section><h2>One-time costs</h2>
 <div class="btns" style="margin-bottom:12px"><button type="button" id="reset">Reset to default estimates</button></div>
@@ -51,7 +51,7 @@ function calc(){V=CC.items.map((x,i)=>parseFloat(document.getElementById('c'+i).
  set('s_acq',fmt(a));set('s_bld',fmt(b));set('s_cont',fmt(c));set('s_tot',fmt(t));
  set('d_acq',fmt(da));set('d_bld',fmt(db));set('d_cont',fmt(dc)+' ('+Math.round(CC.cont*100)+'%)');set('d_tot',fmt(dt));
  set('k_tot',fmt(t));set('k_acq',fmt(a));set('k_bld',fmt(b+c));set('k_bld_s','Incl. '+Math.round(CONT*100)+'% contingency');
- set('k_eq',fmt(t*(1-CC.debt)));set('k_eq_s',Math.round(CC.debt*100)+'% financed ('+fmt(t*CC.debt)+')');
+ set('k_eq',fmt(t-V[0]));set('k_eq_s','Used in Simple ROI on the P&L tab');
  try{localStorage.setItem('ramseur-capex',JSON.stringify({v:V,c:CONT}))}catch(e){}}
 build();calc();
 document.addEventListener('input',e=>{if(e.target.matches('input'))calc()});

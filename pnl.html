@@ -2,28 +2,34 @@
 <header class="mast"><div class="wrap"><div class="brand">806 E Ramseur Mini Golf + Bar<small>Business plan workbook · Durham, NC 27701</small></div><div class="meta">Updated Oct 13, 2026</div></div></header>
 <nav class="card-nav" aria-label="Plan sections"><ol><li><a href="index.html"><span class="no">01</span><span class="nm">Property</span></a></li><li><a href="capex.html"><span class="no">02</span><span class="nm">Initial Capex</span></a></li><li><a href="competition.html"><span class="no">03</span><span class="nm">Competitive Analysis</span></a></li><li><a href="revenue.html"><span class="no">04</span><span class="nm">Revenue Estimates</span></a></li><li><a href="labor.html"><span class="no">05</span><span class="nm">Labor</span></a></li><li><a href="pnl.html" aria-current="page"><span class="no">06</span><span class="nm">P&amp;L</span></a></li><li><a href="issues.html"><span class="no">07</span><span class="nm">Issues</span></a></li><li><a href="gm-ad.html"><span class="no">08</span><span class="nm">GM Job Ad</span></a></li></ol></nav>
 <main class="wrap">
-<div class="ph"><div class="eyebrow">06 · P&amp;L</div><h1>P&amp;L</h1><p class="lede">Annual profit and loss built from the Revenue Estimates, Labor and Initial Capex tabs, with fixed costs and costs that move with sales.</p></div>
+<div class="ph"><div class="eyebrow">06 · P&amp;L</div><h1>P&amp;L</h1><p class="lede">Revenue and gross margin from the Revenue Estimates tab, expenses including property financing and labor, net profit and a simple ROI.</p></div>
 
 <section><p class="alert" id="src"></p></section>
-<section><div class="facts">
-<div class="fact"><div class="k">Revenue / yr</div><div class="v" id="f_rev"></div><div class="s">Revenue Estimates tab</div></div>
-<div class="fact"><div class="k">EBITDA / yr</div><div class="v" id="f_eb"></div><div class="s" id="f_ebm"></div></div>
-<div class="fact"><div class="k">Debt service / yr</div><div class="v" id="f_ds"></div><div class="s" id="f_dss"></div></div>
-<div class="fact"><div class="k">Cash flow after debt</div><div class="v" id="f_cf"></div><div class="s">Before income taxes</div></div>
-</div></section>
 <section><div class="two">
-<div><h2>Annual P&amp;L</h2>
-<div class="tw"><table><thead><tr><th>Line</th><th class="n">Annual</th><th class="n">% of revenue</th></tr></thead><tbody id="ptab"></tbody></table></div></div>
-<div><h2>Fixed annual costs</h2>
-<div class="tw"><table><thead><tr><th>Item</th><th class="n">Year 1</th></tr></thead><tbody><tr><td>Property tax<div class="note">Assessed value assumed = $1.8M; county 57.92c + city 43.71c per $100</div></td><td class="n">$18,293</td></tr><tr><td>Insurance: GL, liquor liability, property, umbrella<div class="note">Estimate; one NC bar operator reports under $20k for a location</div></td><td class="n">$40,000</td></tr><tr><td>Utilities (no HVAC; coolers, fans, lighting, water)<div class="note">Estimate</div></td><td class="n">$36,000</td></tr><tr><td>Building repairs + maintenance<div class="note">Estimate; 1948 Class C building</div></td><td class="n">$20,000</td></tr><tr><td>Course + turf maintenance<div class="note">Estimate</div></td><td class="n">$15,000</td></tr><tr><td>POS, booking, software<div class="note">Estimate</div></td><td class="n">$7,200</td></tr><tr><td>ABC permits + local licenses (renewals)<div class="note">Mixed beverages $1,000; malt $400; wine $400; local</div></td><td class="n">$3,000</td></tr><tr><td>Music licensing (ASCAP/BMI/SESAC)<div class="note">Estimate</div></td><td class="n">$3,500</td></tr><tr><td>Trash, recycling, pest control<div class="note">Estimate</div></td><td class="n">$9,000</td></tr><tr><td>Alarm + camera monitoring<div class="note">Estimate</div></td><td class="n">$3,600</td></tr><tr><td>Accounting + legal<div class="note">Estimate</div></td><td class="n">$15,000</td></tr><tr><td>Operating supplies (balls, putters, scorecards)<div class="note">Estimate</div></td><td class="n">$8,000</td></tr><tr class="total"><td>Fixed operating costs</td><td class="n">$178,593</td></tr></tbody></table></div></div>
+<div>
+<h2>Revenue</h2>
+<div class="tw"><table class="grid"><thead><tr><th>Line</th><th class="n">Annual</th><th>Source</th></tr></thead><tbody>
+<tr><td><b>Total revenues</b></td><td class="n" id="v_rev"></td><td class="note">From <a href="revenue.html">Revenue Estimates</a> tab</td></tr>
+<tr><td><b>Total gross margin</b><div class="note" id="v_gmp"></div></td><td class="n" id="v_gp"></td><td class="note">From <a href="revenue.html">Revenue Estimates</a> tab (revenue × gross margin by line)</td></tr>
+</tbody></table></div>
+
+<h2 style="margin-top:28px">Expenses</h2>
+<div class="tw"><table class="grid"><thead><tr><th>Line</th><th class="n" style="color:var(--alert)">Your amount ✎</th><th class="n">Default estimate</th></tr></thead><tbody id="etab"></tbody></table></div>
+<p class="note" style="margin-top:8px">Property service cost = amount financed × interest rate (interest only, no principal). Labor comes from the Labor tab.</p>
+</div>
+<div>
+<div class="eyebrow">Net profit</div>
+<div class="big" id="b_net"></div>
+<div class="note" id="b_sub"></div>
+<div class="tw" style="margin-top:18px"><table><thead><tr><th>Summary</th><th class="n">Annual</th></tr></thead><tbody id="stab"></tbody></table></div>
+<h2 style="margin-top:28px">Simple ROI</h2>
+<div class="tw"><table><thead><tr><th>Line</th><th class="n">Amount</th></tr></thead><tbody id="rtab"></tbody></table></div>
+<p class="note" style="margin-top:8px">Simple ROI = net profit ÷ (equity contribution + initial capex). Equity contribution = property cost − amount financed. Initial capex is the total on the <a href="capex.html">Initial Capex</a> tab less its purchase price line, which is counted here as property cost.</p>
+</div>
 </div></section>
-<section><h2>Costs that move with sales</h2>
-<div class="tw"><table><thead><tr><th>Item</th><th class="n">Rate</th><th class="n">Annual</th></tr></thead><tbody id="vtab"></tbody></table></div>
-<p class="note" style="margin-top:8px">This page recalculates from the Revenue Estimates, Labor and Initial Capex tabs as you change them. The Excel workbook holds the same model with a summer/winter split and a 5-year projection.</p>
-</section>
 <script>
 
-const SH={"periods": [{"season": "Summer", "daytype": "Weekday", "daypart": "Afternoon", "days": 104, "hours": 5, "players": 30, "food": 6, "ice": 4, "bar": 0}, {"season": "Summer", "daytype": "Weekday", "daypart": "Evening", "days": 104, "hours": 6, "players": 60, "food": 8, "ice": 1, "bar": 5}, {"season": "Summer", "daytype": "Weekend", "daypart": "Afternoon", "days": 70, "hours": 5, "players": 80, "food": 6, "ice": 4, "bar": 5}, {"season": "Summer", "daytype": "Weekend", "daypart": "Evening", "days": 70, "hours": 6, "players": 100, "food": 8, "ice": 1, "bar": 16}, {"season": "Winter", "daytype": "Weekday", "daypart": "Afternoon", "days": 53, "hours": 5, "players": 15, "food": 6, "ice": 0, "bar": 0}, {"season": "Winter", "daytype": "Weekday", "daypart": "Evening", "days": 53, "hours": 6, "players": 20, "food": 8, "ice": 0, "bar": 5}, {"season": "Winter", "daytype": "Weekend", "daypart": "Afternoon", "days": 34, "hours": 5, "players": 30, "food": 6, "ice": 0, "bar": 5}, {"season": "Winter", "daytype": "Weekend", "daypart": "Evening", "days": 34, "hours": 6, "players": 60, "food": 8, "ice": 0, "bar": 5}], "price": 12.0, "events_n": 60, "event_avg": 1500, "gm": {"Golf": 0.95, "Food": 0.15, "Ice cream": 0.7, "Bar": 0.76, "Private events": 0.75}, "dow": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "dow_type": [null, null, "Weekday", "Weekday", "Weekday", "Weekend", "Weekend"], "per_type": {"Weekday": 3, "Weekend": 2}, "dayparts": {"Afternoon": {"label": "12-5 pm", "hours": 5}, "Evening": {"label": "5-11 pm", "hours": 6}}, "staff": {"Weekday|Afternoon": [2, 1], "Weekday|Evening": [3, 2], "Weekend|Afternoon": [3, 2], "Weekend|Evening": [5, 3]}, "rate": 15.0, "bur_h": 0.1, "bur_s": 0.22, "salaried": 127000, "salaried_loaded": 154940.0, "capex": [1800000, 36000, 8000, 25000, 200000, 100000, 100000, 75000, 175000, 35000, 30000, 75000, 20000, 20000, 20000, 25000], "capex_acq": [true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false], "cont": 0.1, "debt": 0.7, "rate_debt": 0.0725, "amort": 25, "fixed": 178593, "card": 0.0275, "mkt": 0.04};
+const SH={"periods": [{"season": "Summer", "daytype": "Weekday", "daypart": "Afternoon", "days": 104, "hours": 5, "players": 30, "food": 6, "ice": 4, "bar": 0}, {"season": "Summer", "daytype": "Weekday", "daypart": "Evening", "days": 104, "hours": 6, "players": 60, "food": 8, "ice": 1, "bar": 5}, {"season": "Summer", "daytype": "Weekend", "daypart": "Afternoon", "days": 70, "hours": 5, "players": 80, "food": 6, "ice": 4, "bar": 5}, {"season": "Summer", "daytype": "Weekend", "daypart": "Evening", "days": 70, "hours": 6, "players": 100, "food": 8, "ice": 1, "bar": 16}, {"season": "Winter", "daytype": "Weekday", "daypart": "Afternoon", "days": 53, "hours": 5, "players": 15, "food": 6, "ice": 0, "bar": 0}, {"season": "Winter", "daytype": "Weekday", "daypart": "Evening", "days": 53, "hours": 6, "players": 20, "food": 8, "ice": 0, "bar": 5}, {"season": "Winter", "daytype": "Weekend", "daypart": "Afternoon", "days": 34, "hours": 5, "players": 30, "food": 6, "ice": 0, "bar": 5}, {"season": "Winter", "daytype": "Weekend", "daypart": "Evening", "days": 34, "hours": 6, "players": 60, "food": 8, "ice": 0, "bar": 5}], "price": 12.0, "events_n": 60, "event_avg": 1500, "gm": {"Golf": 0.95, "Food": 0.15, "Ice cream": 0.7, "Bar": 0.76, "Private events": 0.75}, "dow": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "dow_type": [null, null, "Weekday", "Weekday", "Weekday", "Weekend", "Weekend"], "per_type": {"Weekday": 3, "Weekend": 2}, "dayparts": {"Afternoon": {"label": "12-5 pm", "hours": 5}, "Evening": {"label": "5-11 pm", "hours": 6}}, "staff": {"Weekday|Afternoon": [2, 1], "Weekday|Evening": [3, 2], "Weekend|Afternoon": [3, 2], "Weekend|Evening": [5, 3]}, "rate": 15.0, "bur_h": 0.1, "bur_s": 0.22, "salaried": 127000, "salaried_loaded": 154940.0, "capex": [1800000, 36000, 8000, 25000, 200000, 100000, 100000, 75000, 175000, 35000, 30000, 75000, 20000, 20000, 20000, 25000], "capex_acq": [true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false], "cont": 0.1, "prop_cost": 1800000, "financed": 1260000, "int_rate": 0.0725, "pl_exp": [{"k": "tax", "label": "Property tax", "d": 18293}, {"k": "ins", "label": "Insurance", "d": 40000}, {"k": "util", "label": "Utilities", "d": 36000}, {"k": "acct", "label": "Accounting software & legal", "d": 15000}, {"k": "maint", "label": "Building and course maintenance", "d": 30000}, {"k": "trash", "label": "Trash & maintenance", "d": 15000}, {"k": "misc", "label": "Misc", "d": 15000}]};
 const fmt=v=>(v<0?'($'+Math.round(-v).toLocaleString('en-US')+')':'$'+Math.round(v).toLocaleString('en-US')), num=v=>Math.round(v).toLocaleString('en-US');
 function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
 function revState(){const s=load('ramseur-rev3');return (s&&s.periods&&s.periods.length===8)?{st:s,saved:true}:{st:{periods:SH.periods,price:SH.price,events_n:SH.events_n,event_avg:SH.event_avg,gm:SH.gm},saved:false}}
@@ -33,39 +39,42 @@ function findP(st,season,dt,dp){return st.periods.find(p=>p.season===season&&p.d
 const R=revState(),L=laborState();let C=null;try{C=JSON.parse(localStorage.getItem('ramseur-capex'))}catch(e){}
 const rs=R.st;const lines={Golf:0,Food:0,'Ice cream':0,Bar:0,'Private events':rs.events_n*rs.event_avg};
 rs.periods.forEach(p=>{const n=p.days*p.players;lines.Golf+=n*rs.price;lines.Food+=n*p.food;lines['Ice cream']+=n*p.ice;lines.Bar+=n*p.bar});
-const rev=Object.values(lines).reduce((a,b)=>a+b,0);
-const cogs={};Object.keys(lines).forEach(k=>cogs[k]=lines[k]*(1-rs.gm[k]));const cogsT=Object.values(cogs).reduce((a,b)=>a+b,0);
-// labor
+const rev=Object.values(lines).reduce((a,b)=>a+b,0);let gp=0;Object.keys(lines).forEach(k=>gp+=lines[k]*rs.gm[k]);
 let hrs=0,k=0;const rate=(L.saved&&L.st.rate)?L.st.rate:SH.rate;
 SH.dow.forEach((d,i)=>{const t=SH.dow_type[i];Object.keys(SH.dayparts).forEach(dp=>{if(t){const st=L.saved?L.st.staff[k]:SH.staff[t+'|'+dp],n=SH.per_type[t];
  hrs+=SH.dayparts[dp].hours*(st[0]*findP(rs,'Summer',t,dp).days/n+st[1]*findP(rs,'Winter',t,dp).days/n)}k++})});
-const hourly=hrs*rate*(1+SH.bur_h),labor=hourly+SH.salaried_loaded;
-// capex + debt
+const labor=hrs*rate*(1+SH.bur_h)+SH.salaried_loaded;
 const V=(C&&C.v&&C.v.length===SH.capex.length)?C.v:SH.capex,cont=(C&&C.c!=null)?C.c:SH.cont;
-let acq=0,bld=0;V.forEach((v,i)=>SH.capex_acq[i]?acq+=v:bld+=v);const proj=acq+bld*(1+cont),loan=proj*SH.debt,r=SH.rate_debt/12,nper=SH.amort*12;
-const ds=loan*r/(1-Math.pow(1+r,-nper))*12;
-const card=(rev-lines.Food)*SH.card,mkt=rev*SH.mkt,fixed=SH.fixed;
-const gp=rev-cogsT,opx=labor+fixed+card+mkt,eb=gp-opx,cf=eb-ds;
-const pct=v=>rev?(v/rev*100).toFixed(1)+'%':'—';
-const rows=[['Golf',lines.Golf],['Food',lines.Food],['Ice cream',lines['Ice cream']],['Bar',lines.Bar],['Private events',lines['Private events']]].map(([a,b])=>`<tr><td>${a}</td><td class="n">${fmt(b)}</td><td class="n">${pct(b)}</td></tr>`).join('')+
- `<tr class="total"><td>Total revenue</td><td class="n">${fmt(rev)}</td><td class="n">100%</td></tr>`+
- `<tr><td>Cost of sales</td><td class="n">${fmt(-cogsT)}</td><td class="n">${pct(cogsT)}</td></tr>`+
- `<tr class="total"><td>Gross profit</td><td class="n">${fmt(gp)}</td><td class="n">${pct(gp)}</td></tr>`+
- `<tr><td>Labor <span class="note">(<a href="labor.html">Labor tab</a>)</span></td><td class="n">${fmt(-labor)}</td><td class="n">${pct(labor)}</td></tr>`+
- `<tr><td>Fixed operating costs</td><td class="n">${fmt(-fixed)}</td><td class="n">${pct(fixed)}</td></tr>`+
- `<tr><td>Card processing</td><td class="n">${fmt(-card)}</td><td class="n">${pct(card)}</td></tr>`+
- `<tr><td>Marketing</td><td class="n">${fmt(-mkt)}</td><td class="n">${pct(mkt)}</td></tr>`+
- `<tr class="total"><td>EBITDA</td><td class="n">${fmt(eb)}</td><td class="n">${pct(eb)}</td></tr>`+
- `<tr><td>Debt service <span class="note">(<a href="capex.html">Initial Capex</a> × ${Math.round(SH.debt*100)}%)</span></td><td class="n">${fmt(-ds)}</td><td class="n">${pct(ds)}</td></tr>`+
- `<tr class="total"><td>Cash flow after debt</td><td class="n">${fmt(cf)}</td><td class="n">${pct(cf)}</td></tr>`;
-document.getElementById('ptab').innerHTML=rows;
-document.getElementById('vtab').innerHTML=Object.keys(lines).map(k=>`<tr><td>${k} cost of sales</td><td class="n">${Math.round((1-rs.gm[k])*100)}% of ${k.toLowerCase()} sales</td><td class="n">${fmt(cogs[k])}</td></tr>`).join('')+
- `<tr><td>Card processing</td><td class="n">${(SH.card*100).toFixed(2)}% of non-food sales</td><td class="n">${fmt(card)}</td></tr><tr><td>Marketing</td><td class="n">${Math.round(SH.mkt*100)}% of sales</td><td class="n">${fmt(mkt)}</td></tr>`;
+let acq=0,bld=0;V.forEach((v,i)=>SH.capex_acq[i]?acq+=v:bld+=v);const capTot=acq+bld*(1+cont),capEx=capTot-V[0];
+const DEF={prop:SH.prop_cost,fin:SH.financed,rate:+(SH.int_rate*100).toFixed(2)};SH.pl_exp.forEach(x=>DEF[x.k]=x.d);
+let S=Object.assign({},DEF);try{const sv=JSON.parse(localStorage.getItem('ramseur-pnl'));if(sv)S=Object.assign(S,sv)}catch(e){}
+const inp=(id,v,step,w)=>`<input id="${id}" type="number" min="0" step="${step}" inputmode="decimal" value="${v}" style="width:${w||120}px;border-color:var(--alert);color:var(--alert)" aria-label="${id}">`;
+const rowI=(id,label,step,dflt,note)=>`<tr><td>${label}${note?'<div class="note">'+note+'</div>':''}</td><td class="n">${inp(id,S[id],step)}</td><td class="n">${dflt}</td></tr>`;
+let h='<tr class="sub"><td colspan="3"><b>Property cost</b></td></tr>';
+h+=rowI('prop','Property cost',10000,fmt(DEF.prop));
+h+=rowI('fin','Amount financed',10000,fmt(DEF.fin));
+h+=rowI('rate','Interest rate (%)',0.05,DEF.rate+'%');
+h+=`<tr><td><b>Property service cost</b><div class="note">Amount financed × interest rate</div></td><td class="n" id="c_int"></td><td class="n">${fmt(DEF.fin*DEF.rate/100)}</td></tr>`;
+h+='<tr class="sub"><td colspan="3"><b>Property operating costs</b></td></tr>';
+SH.pl_exp.slice(0,3).forEach(x=>h+=rowI(x.k,x.label,500,fmt(x.d)));
+h+=`<tr class="sub"><td colspan="3"><b>Labor</b></td></tr><tr><td><b>Labor</b><div class="note">From the <a href="labor.html">Labor</a> tab (salaried + hourly, loaded)</div></td><td class="n" id="c_lab"></td><td class="n">from Labor tab</td></tr>`;
+h+='<tr class="sub"><td colspan="3"><b>Other operating costs</b></td></tr>';
+SH.pl_exp.slice(3).forEach(x=>h+=rowI(x.k,x.label,500,fmt(x.d)));
+h+=`<tr class="total"><td>Total expenses</td><td class="n" id="c_tot"></td><td></td></tr><tr class="total"><td>Net profit</td><td class="n" id="c_net"></td><td></td></tr>`;
+document.getElementById('etab').innerHTML=h;
 const set=(id,v)=>document.getElementById(id).textContent=v;
-set('f_rev',fmt(rev));set('f_eb',fmt(eb));set('f_ebm',pct(eb)+' of revenue');set('f_ds',fmt(ds));set('f_dss',Math.round(SH.debt*100)+'% of '+fmt(proj)+', '+(SH.rate_debt*100).toFixed(2)+'%, '+SH.amort+' yr');set('f_cf',fmt(cf));
-const used=[R.saved?'Revenue Estimates (your inputs)':'Revenue Estimates (defaults)',L.saved?'Labor (your inputs)':'Labor (defaults)',C?'Initial Capex (your inputs)':'Initial Capex (defaults)'];
-set('src','Calculated from: '+used.join(' · ')+'. Edits on those tabs flow here automatically in this browser.');
+set('v_rev',fmt(rev));set('v_gp',fmt(gp));set('v_gmp',(rev?(gp/rev*100).toFixed(1):0)+'% of revenue');
+function calc(){['prop','fin','rate'].concat(SH.pl_exp.map(x=>x.k)).forEach(id=>S[id]=parseFloat(document.getElementById(id).value)||0);
+ const intr=S.fin*S.rate/100,other=SH.pl_exp.reduce((a,x)=>a+S[x.k],0),exp=intr+labor+other,net=gp-exp;
+ const eq=S.prop-S.fin,inv=eq+capEx,roi=inv?net/inv:0;
+ set('c_int',fmt(intr));set('c_lab',fmt(labor));set('c_tot',fmt(exp));set('c_net',fmt(net));
+ set('b_net',fmt(net));set('b_sub','Simple ROI '+(roi*100).toFixed(1)+'% on '+fmt(inv)+' invested');
+ document.getElementById('stab').innerHTML=[['Total revenues (Revenue Estimates)',rev],['Total gross margin (Revenue Estimates)',gp],['Total expenses',-exp],['Net profit',net]].map(([a,b],i)=>`<tr class="${i==3?'total':''}"><td>${a}</td><td class="n">${fmt(b)}</td></tr>`).join('');
+ document.getElementById('rtab').innerHTML=`<tr><td>Net profit</td><td class="n">${fmt(net)}</td></tr><tr><td>Property cost</td><td class="n">${fmt(S.prop)}</td></tr><tr><td>Less amount financed</td><td class="n">${fmt(-S.fin)}</td></tr><tr class="sub"><td>Equity contribution</td><td class="n">${fmt(eq)}</td></tr><tr><td>Initial capex <span class="note">(<a href="capex.html">Initial Capex</a> tab, excl. purchase price)</span></td><td class="n">${fmt(capEx)}</td></tr><tr class="sub"><td>Total invested</td><td class="n">${fmt(inv)}</td></tr><tr class="total"><td>Simple ROI</td><td class="n">${(roi*100).toFixed(1)}%</td></tr>`;
+ try{localStorage.setItem('ramseur-pnl',JSON.stringify(S))}catch(e){}}
+calc();document.addEventListener('input',e=>{if(e.target.matches('input'))calc()});
+set('src','Calculated from: '+[R.saved?'Revenue Estimates (your inputs)':'Revenue Estimates (defaults)',L.saved?'Labor (your inputs)':'Labor (defaults)',C?'Initial Capex (your inputs)':'Initial Capex (defaults)'].join(' · ')+'. Edit the red boxes below; other numbers update from those tabs.');
 </script>
-<section><h3>Sources</h3><ul class="sources plain"><li><a href="https://dconc.gov/DurhamCo-News/Durham-Commissioners-Approve-1.05-Billion-Budget.htm" target="_blank" rel="noopener">Durham County FY2026-27 tax rate</a> · June 2026</li><li><a href="https://www.durhamnc.gov/CivicAlerts.aspx?AID=3503" target="_blank" rel="noopener">City of Durham FY2025-26 proposed rate</a> · 2025; verify</li><li><a href="https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_18b/GS_18b-902.html" target="_blank" rel="noopener">NC G.S. 18B-902 ABC permit fees</a> · current</li><li><a href="https://www.wbtw.com/news/grand-strand/horry-county/south-carolina-bars-and-restaurants-struggle-to-afford-and-find-liability-insurance-as-prices-climb/amp/" target="_blank" rel="noopener">NC vs SC bar insurance costs, WBTW</a> · 2024</li></ul></section>
+<section><h3>Sources</h3><ul class="sources plain"><li><a href="https://dconc.gov/DurhamCo-News/Durham-Commissioners-Approve-1.05-Billion-Budget.htm" target="_blank" rel="noopener">Durham County FY2026-27 tax rate</a> · June 2026</li><li><a href="https://www.durhamnc.gov/CivicAlerts.aspx?AID=3503" target="_blank" rel="noopener">City of Durham FY2025-26 proposed rate</a> · 2025; verify</li></ul></section>
 </main>
 <footer><div class="wrap">Planning estimates, not quotes. Numbers on these pages feed the Excel P&amp;L (806-Ramseur-PnL.xlsx), which is the source of truth for the model. Not legal, tax, or zoning advice.</div></footer></body></html>
