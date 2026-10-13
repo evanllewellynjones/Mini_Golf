@@ -1,8 +1,8 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>806 Ramseur Revenue Estimates</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=JetBrains+Mono:wght@400;600&family=Public+Sans:wght@400;600;700&display=swap"><link rel="stylesheet" href="styles.css"></head><body>
 <header class="mast"><div class="wrap"><div class="brand">806 E Ramseur Mini Golf + Bar<small>Business plan workbook · Durham, NC 27701</small></div><div class="meta">Updated Oct 13, 2026</div></div></header>
-<nav class="card-nav" aria-label="Plan sections"><ol><li><a href="index.html"><span class="no">01</span><span class="nm">Property</span></a></li><li><a href="competition.html"><span class="no">02</span><span class="nm">Competitive Analysis</span></a></li><li><a href="revenue.html" aria-current="page"><span class="no">03</span><span class="nm">Revenue Estimates</span></a></li><li><a href="capex.html"><span class="no">04</span><span class="nm">Initial Capex</span></a></li><li><a href="opex.html"><span class="no">05</span><span class="nm">Ongoing Expenses</span></a></li><li><a href="gm-ad.html"><span class="no">06</span><span class="nm">GM Job Ad</span></a></li><li><a href="issues.html"><span class="no">07</span><span class="nm">Issues</span></a></li></ol></nav>
+<nav class="card-nav" aria-label="Plan sections"><ol><li><a href="index.html"><span class="no">01</span><span class="nm">Property</span></a></li><li><a href="capex.html"><span class="no">02</span><span class="nm">Initial Capex</span></a></li><li><a href="competition.html"><span class="no">03</span><span class="nm">Competitive Analysis</span></a></li><li><a href="revenue.html" aria-current="page"><span class="no">04</span><span class="nm">Revenue Estimates</span></a></li><li><a href="labor.html"><span class="no">05</span><span class="nm">Labor</span></a></li><li><a href="pnl.html"><span class="no">06</span><span class="nm">P&amp;L</span></a></li><li><a href="issues.html"><span class="no">07</span><span class="nm">Issues</span></a></li><li><a href="gm-ad.html"><span class="no">08</span><span class="nm">GM Job Ad</span></a></li></ol></nav>
 <main class="wrap">
-<div class="ph"><div class="eyebrow">03 · Revenue Estimates</div><h1>Revenue estimates</h1><p class="lede">Revenue built up by season, weekday versus weekend, and afternoon versus evening, with a gross margin on each line.</p></div>
+<div class="ph"><div class="eyebrow">04 · Revenue Estimates</div><h1>Revenue estimates</h1><p class="lede">Revenue built up by season, weekday versus weekend, and afternoon versus evening, with a gross margin on each line.</p></div>
 
 <section>
 <div class="two" style="align-items:end">
@@ -13,18 +13,20 @@
 </div>
 <div class="btns" style="justify-content:flex-end"><button type="button" id="reset">Reset to defaults</button><button type="button" id="copy">Copy period table for Excel</button></div>
 </div>
-<p class="note" id="copymsg" style="margin-top:10px">Edit any white box. Your numbers stay in this browser. Summer is Apr 1–Nov 30, winter Dec 1–Mar 31. Default days count Wed–Fri as weekdays and Sat–Sun as weekends in calendar 2027, closed Mon–Tue, holidays not removed.</p>
+<p class="alert" id="copymsg">Edit any white box. Your numbers stay in this browser. Summer is Apr 1–Nov 30, winter Dec 1–Mar 31. Default days count Wed–Fri as weekdays and Sat–Sun as weekends in calendar 2027, closed Mon–Tue, holidays not removed.</p>
 </section>
 
 <section><h2>By season, day and daypart</h2>
 <div class="tw"><table class="grid">
-<thead><tr><th>Period</th><th class="n">Days / yr</th><th class="n">Hours</th><th class="n">Players / day</th><th class="n">Food $ / player</th><th class="n">Ice cream $ / player</th><th class="n">Bar $ / player</th><th class="n">Revenue / yr</th></tr></thead>
+<thead><tr><th>Period</th><th class="n">Days / yr</th><th class="n">Hrs</th><th class="n">Players / day</th><th class="n">Food $ / player</th><th class="n">Ice cream $ / player</th><th class="n">Bar $ / player</th><th class="n">Revenue / yr</th></tr></thead>
 <tbody id="ptab"></tbody></table></div>
-<p class="note" style="margin-top:8px">Players are per daypart per day (e.g. 150 players across a Saturday evening). Revenue = days × players × (golf price + food + ice cream + bar). Afternoon 12–5 pm (5 hrs), evening 5–11 pm (6 hrs). Days and hours here also drive staffing on <a href="opex.html">Ongoing Expenses</a>.</p>
+<p class="note" style="margin-top:8px">Gray numbers under each box are the <b>default estimates</b>. Players are per daypart per day (e.g. 100 players across a Saturday evening). Revenue = days × players × (golf price + food + ice cream + bar). Afternoon 12–5 pm (5 hrs), evening 5–11 pm (6 hrs). Days and hours here also feed the <a href="labor.html">Labor</a> tab.</p>
 </section>
 
-<section><div class="two">
-<div><h2>Totals and gross margin</h2>
+<section><h2>Totals from the inputs above</h2>
+<p class="note" style="margin-top:-6px;margin-bottom:14px">Everything below is calculated from the period table and settings above. Only the gross margin boxes are inputs here.</p>
+<div class="two">
+<div><h3>Revenue and gross margin by line</h3>
 <div class="tw"><table class="grid">
 <thead><tr><th>Line</th><th class="n">Revenue</th><th class="n">Gross margin</th><th class="n">Gross profit</th></tr></thead>
 <tbody id="ttab"></tbody></table></div>
@@ -39,25 +41,26 @@
 <tbody id="kpis"></tbody></table></div></div>
 </div></section>
 <script>
-const CFG={"periods": [{"season": "Summer", "daytype": "Weekday", "daypart": "Afternoon", "days": 104, "hours": 5, "label": "12-5 pm", "players": 40, "food": 6, "ice": 4, "bar": 3}, {"season": "Summer", "daytype": "Weekday", "daypart": "Evening", "days": 104, "hours": 6, "label": "5-11 pm", "players": 70, "food": 8, "ice": 1, "bar": 16}, {"season": "Summer", "daytype": "Weekend", "daypart": "Afternoon", "days": 70, "hours": 5, "label": "12-5 pm", "players": 140, "food": 6, "ice": 4, "bar": 3}, {"season": "Summer", "daytype": "Weekend", "daypart": "Evening", "days": 70, "hours": 6, "label": "5-11 pm", "players": 150, "food": 8, "ice": 1, "bar": 16}, {"season": "Winter", "daytype": "Weekday", "daypart": "Afternoon", "days": 53, "hours": 5, "label": "12-5 pm", "players": 15, "food": 6, "ice": 2, "bar": 3}, {"season": "Winter", "daytype": "Weekday", "daypart": "Evening", "days": 53, "hours": 6, "label": "5-11 pm", "players": 35, "food": 8, "ice": 1, "bar": 16}, {"season": "Winter", "daytype": "Weekend", "daypart": "Afternoon", "days": 34, "hours": 5, "label": "12-5 pm", "players": 60, "food": 6, "ice": 2, "bar": 3}, {"season": "Winter", "daytype": "Weekend", "daypart": "Evening", "days": 34, "hours": 6, "label": "5-11 pm", "players": 80, "food": 8, "ice": 1, "bar": 16}], "price": 12.0, "events_n": 60, "event_avg": 1500, "gm": {"Golf": 0.95, "Food": 0.15, "Ice cream": 0.7, "Bar": 0.76, "Private events": 0.75}, "gm_note": {"Golf": "Course upkeep sits in fixed costs; Puttshack cites ~95% on mini golf", "Food": "Food trucks keep their sales; 15% = our commission. Use ~65% if we run food ourselves", "Ice cream": "~30% product cost", "Bar": "~24% pour cost", "Private events": "Food + drink in packages"}};
+const CFG={"periods": [{"season": "Summer", "daytype": "Weekday", "daypart": "Afternoon", "days": 104, "hours": 5, "label": "12-5 pm", "players": 30, "food": 6, "ice": 4, "bar": 0}, {"season": "Summer", "daytype": "Weekday", "daypart": "Evening", "days": 104, "hours": 6, "label": "5-11 pm", "players": 60, "food": 8, "ice": 1, "bar": 5}, {"season": "Summer", "daytype": "Weekend", "daypart": "Afternoon", "days": 70, "hours": 5, "label": "12-5 pm", "players": 80, "food": 6, "ice": 4, "bar": 5}, {"season": "Summer", "daytype": "Weekend", "daypart": "Evening", "days": 70, "hours": 6, "label": "5-11 pm", "players": 100, "food": 8, "ice": 1, "bar": 16}, {"season": "Winter", "daytype": "Weekday", "daypart": "Afternoon", "days": 53, "hours": 5, "label": "12-5 pm", "players": 15, "food": 6, "ice": 0, "bar": 0}, {"season": "Winter", "daytype": "Weekday", "daypart": "Evening", "days": 53, "hours": 6, "label": "5-11 pm", "players": 20, "food": 8, "ice": 0, "bar": 5}, {"season": "Winter", "daytype": "Weekend", "daypart": "Afternoon", "days": 34, "hours": 5, "label": "12-5 pm", "players": 30, "food": 6, "ice": 0, "bar": 5}, {"season": "Winter", "daytype": "Weekend", "daypart": "Evening", "days": 34, "hours": 6, "label": "5-11 pm", "players": 60, "food": 8, "ice": 0, "bar": 5}], "price": 12.0, "events_n": 60, "event_avg": 1500, "gm": {"Golf": 0.95, "Food": 0.15, "Ice cream": 0.7, "Bar": 0.76, "Private events": 0.75}, "gm_note": {"Golf": "Course upkeep sits in fixed costs; Puttshack cites ~95% on mini golf", "Food": "Food trucks keep their sales; 15% = our commission. Use ~65% if we run food ourselves", "Ice cream": "~30% product cost", "Bar": "~24% pour cost", "Private events": "Food + drink in packages"}};
 const LINES=['Golf','Food','Ice cream','Bar','Private events'];
 const COLORS=['var(--turf)','var(--amber)','var(--flag)','var(--ink)','var(--muted)'];
 const fmt=v=>'$'+Math.round(v).toLocaleString('en-US'), num=v=>Math.round(v).toLocaleString('en-US');
-const inp=(id,v,step)=>`<input id="${id}" type="number" min="0" step="${step}" inputmode="decimal" value="${v}" aria-label="${id}">`;
+const inp=(id,v,step,d)=>`<input id="${id}" type="number" min="0" step="${step}" inputmode="decimal" value="${v}" aria-label="${id}">`+(d===undefined?'':`<div class="dflt">${d}</div>`);
 function defaults(){return JSON.parse(JSON.stringify({periods:CFG.periods,price:CFG.price,events_n:CFG.events_n,event_avg:CFG.event_avg,gm:CFG.gm}))}
 let S=defaults();
-try{const sv=JSON.parse(localStorage.getItem('ramseur-rev2'));if(sv&&sv.periods&&sv.periods.length===8)S=sv}catch(e){}
+try{const sv=JSON.parse(localStorage.getItem('ramseur-rev3'));if(sv&&sv.periods&&sv.periods.length===8)S=sv}catch(e){}
 function build(){
  const t=document.getElementById('ptab');let h='',season='';
- S.periods.forEach((p,i)=>{if(p.season!==season){season=p.season;h+=`<tr class="sub"><td colspan="8"><b>${season}</b> · ${season==='Summer'?'Apr 1 – Nov 30':'Dec 1 – Mar 31'}</td></tr>`}
+ S.periods.forEach((p,i)=>{const D=CFG.periods[i];if(p.season!==season){season=p.season;h+=`<tr class="sub"><td colspan="8"><b>${season}</b> · ${season==='Summer'?'Apr 1 – Nov 30':'Dec 1 – Mar 31'}</td></tr>`}
   h+=`<tr><td>${p.daytype} ${p.daypart.toLowerCase()}<div class="note">${p.daytype==='Weekday'?'Wed–Fri':'Sat–Sun'} · ${p.label}</div></td>
-  <td class="n">${inp('d'+i,p.days,1)}</td><td class="n">${p.hours}</td><td class="n">${inp('p'+i,p.players,5)}</td>
-  <td class="n">${inp('f'+i,p.food,0.5)}</td><td class="n">${inp('i'+i,p.ice,0.5)}</td><td class="n">${inp('b'+i,p.bar,0.5)}</td><td class="n" id="r${i}"></td></tr>`;
+  <td class="n">${inp('d'+i,p.days,1,D.days)}</td><td class="n">${p.hours}</td><td class="n">${inp('p'+i,p.players,5,D.players)}</td>
+  <td class="n">${inp('f'+i,p.food,0.5,D.food)}</td><td class="n">${inp('i'+i,p.ice,0.5,D.ice)}</td><td class="n">${inp('b'+i,p.bar,0.5,D.bar)}</td><td class="n" id="r${i}"></td></tr>`;
   if(i===3||i===7)h+=`<tr class="total"><td>${season} total</td><td class="n" id="sd${i}"></td><td></td><td class="n" id="sp${i}"></td><td></td><td></td><td></td><td class="n" id="sr${i}"></td></tr>`});
  t.innerHTML=h;
- document.getElementById('ttab').innerHTML=LINES.map((k,j)=>`<tr><td>${k}</td><td class="n" id="lv${j}"></td><td class="n">${inp('gm'+j,Math.round(S.gm[k]*100),1)} %</td><td class="n" id="lg${j}"></td></tr>`).join('')+
+ document.getElementById('ttab').innerHTML=LINES.map((k,j)=>`<tr><td>${k}</td><td class="n" id="lv${j}"></td><td class="n">${inp('gm'+j,Math.round(S.gm[k]*100),1,Math.round(CFG.gm[k]*100)+'%')}</td><td class="n" id="lg${j}"></td></tr>`).join('')+
   `<tr class="total"><td>Total</td><td class="n" id="lvt"></td><td class="n" id="lgm"></td><td class="n" id="lgt"></td></tr>`;
  document.getElementById('gmnotes').innerHTML=LINES.map(k=>`<b>${k}:</b> ${CFG.gm_note[k]}`).join('<br>');
+ [['price',CFG.price],['events_n',CFG.events_n],['event_avg',CFG.event_avg]].forEach(([id,d])=>{const sp=document.getElementById(id).parentElement.querySelector('span');sp.textContent='Default estimate: '+d;sp.className='dflt'});
  document.getElementById('price').value=S.price;document.getElementById('events_n').value=S.events_n;document.getElementById('event_avg').value=S.event_avg;
 }
 const val=id=>parseFloat(document.getElementById(id).value)||0;
@@ -87,7 +90,7 @@ function calc(){
   ['Summer share of revenue',t?((seas.Summer)/(seas.Summer+seas.Winter)*100).toFixed(0)+'%':'—'],
   ['Summer Saturday/Sunday night players per hour',(pk.players/pk.hours).toFixed(0)+' (course cap ~85)']
  ].map(([k,v])=>`<tr><td>${k}</td><td class="n">${v}</td></tr>`).join('');
- try{localStorage.setItem('ramseur-rev2',JSON.stringify(S))}catch(e){}
+ try{localStorage.setItem('ramseur-rev3',JSON.stringify(S))}catch(e){}
 }
 build();calc();
 document.addEventListener('input',e=>{if(e.target.matches('input')){read();calc()}});

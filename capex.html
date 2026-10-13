@@ -1,8 +1,8 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>806 Ramseur Initial Capex</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=JetBrains+Mono:wght@400;600&family=Public+Sans:wght@400;600;700&display=swap"><link rel="stylesheet" href="styles.css"></head><body>
 <header class="mast"><div class="wrap"><div class="brand">806 E Ramseur Mini Golf + Bar<small>Business plan workbook · Durham, NC 27701</small></div><div class="meta">Updated Oct 13, 2026</div></div></header>
-<nav class="card-nav" aria-label="Plan sections"><ol><li><a href="index.html"><span class="no">01</span><span class="nm">Property</span></a></li><li><a href="competition.html"><span class="no">02</span><span class="nm">Competitive Analysis</span></a></li><li><a href="revenue.html"><span class="no">03</span><span class="nm">Revenue Estimates</span></a></li><li><a href="capex.html" aria-current="page"><span class="no">04</span><span class="nm">Initial Capex</span></a></li><li><a href="opex.html"><span class="no">05</span><span class="nm">Ongoing Expenses</span></a></li><li><a href="gm-ad.html"><span class="no">06</span><span class="nm">GM Job Ad</span></a></li><li><a href="issues.html"><span class="no">07</span><span class="nm">Issues</span></a></li></ol></nav>
+<nav class="card-nav" aria-label="Plan sections"><ol><li><a href="index.html"><span class="no">01</span><span class="nm">Property</span></a></li><li><a href="capex.html" aria-current="page"><span class="no">02</span><span class="nm">Initial Capex</span></a></li><li><a href="competition.html"><span class="no">03</span><span class="nm">Competitive Analysis</span></a></li><li><a href="revenue.html"><span class="no">04</span><span class="nm">Revenue Estimates</span></a></li><li><a href="labor.html"><span class="no">05</span><span class="nm">Labor</span></a></li><li><a href="pnl.html"><span class="no">06</span><span class="nm">P&amp;L</span></a></li><li><a href="issues.html"><span class="no">07</span><span class="nm">Issues</span></a></li><li><a href="gm-ad.html"><span class="no">08</span><span class="nm">GM Job Ad</span></a></li></ol></nav>
 <main class="wrap">
-<div class="ph"><div class="eyebrow">04 · Initial Capex</div><h1>Initial capex</h1><p class="lede">Everything spent once, from purchase through opening day. Enter your own amounts next to the default estimates.</p></div>
+<div class="ph"><div class="eyebrow">02 · Initial Capex</div><h1>Initial capex</h1><p class="lede">Everything spent once, from purchase through opening day. Enter your own amounts next to the default estimates.</p></div>
 
 <section><div class="facts">
 <div class="fact"><div class="k">Total project cost</div><div class="v" id="k_tot"></div><div class="s">Incl. contingency</div></div>
@@ -13,7 +13,7 @@
 <section><h2>One-time costs</h2>
 <div class="btns" style="margin-bottom:12px"><button type="button" id="reset">Reset to default estimates</button></div>
 <div class="tw"><table class="grid">
-<thead><tr><th>Category</th><th>Item</th><th class="n">Your amount</th><th class="n">Default estimate</th></tr></thead>
+<thead><tr><th>Category</th><th>Item</th><th class="n" style="color:var(--alert);font-size:12px">Your amount ✎</th><th class="n">Default estimate</th></tr></thead>
 <tbody id="ctab"></tbody></table></div>
 <p class="note" id="cmsg" style="margin-top:8px">Type over any amount; totals update. Default estimates stay in the right column for reference. Your numbers stay in this browser; the Excel Capex sheet holds the model copy.</p>
 </section>
@@ -37,7 +37,7 @@ const fmt=v=>'$'+Math.round(v).toLocaleString('en-US');
 let V=CC.items.map(x=>x.dflt),CONT=CC.cont;
 try{const sv=JSON.parse(localStorage.getItem('ramseur-capex'));if(sv&&sv.v&&sv.v.length===V.length){V=sv.v;CONT=sv.c}}catch(e){}
 function build(){let h='',cur='';
- CC.items.forEach((x,i)=>{h+=`<tr><td>${x.cat!==cur?x.cat:''}</td><td>${x.item}<div class="note">${x.basis}</div></td><td class="n"><input id="c${i}" type="number" min="0" step="1000" inputmode="decimal" value="${V[i]}" aria-label="${x.item}" style="width:120px"></td><td class="n">${fmt(x.dflt)}</td></tr>`;cur=x.cat});
+ CC.items.forEach((x,i)=>{h+=`<tr><td>${x.cat!==cur?x.cat:''}</td><td>${x.item}<div class="note">${x.basis}</div></td><td class="n"><input id="c${i}" type="number" min="0" step="1000" inputmode="decimal" value="${V[i]}" aria-label="${x.item}" style="width:120px;border-color:var(--alert);color:var(--alert)"></td><td class="n">${fmt(x.dflt)}</td></tr>`;cur=x.cat});
  h+=`<tr class="sub"><td></td><td>Subtotal: acquisition</td><td class="n" id="s_acq"></td><td class="n" id="d_acq"></td></tr>`;
  h+=`<tr class="sub"><td></td><td>Subtotal: build-out and opening</td><td class="n" id="s_bld"></td><td class="n" id="d_bld"></td></tr>`;
  h+=`<tr><td></td><td>Contingency on build-out (%)</td><td class="n"><input id="cont" type="number" min="0" step="1" value="${Math.round(CONT*100)}" aria-label="Contingency percent" style="width:120px"> <span id="s_cont"></span></td><td class="n" id="d_cont"></td></tr>`;
