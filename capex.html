@@ -2,13 +2,13 @@
 <header class="mast"><div class="wrap"><div class="brand">806 E Ramseur Mini Golf + Bar<small>Business plan workbook · Durham, NC 27701</small></div><div class="meta">Updated Oct 13, 2026</div></div></header>
 <nav class="card-nav" aria-label="Plan sections"><ol><li><a href="index.html"><span class="no">01</span><span class="nm">Property</span></a></li><li><a href="capex.html" aria-current="page"><span class="no">02</span><span class="nm">Initial Capex</span></a></li><li><a href="competition.html"><span class="no">03</span><span class="nm">Competitive Analysis</span></a></li><li><a href="revenue.html"><span class="no">04</span><span class="nm">Revenue Estimates</span></a></li><li><a href="labor.html"><span class="no">05</span><span class="nm">Labor</span></a></li><li><a href="pnl.html"><span class="no">06</span><span class="nm">P&amp;L</span></a></li><li><a href="issues.html"><span class="no">07</span><span class="nm">Issues</span></a></li></ol></nav>
 <main class="wrap">
-<div class="ph"><a class="xl" href="806-Ramseur-PnL.xlsx" download>⤓ Download Excel model</a><div class="eyebrow">02 · Initial Capex</div><h1>Initial capex</h1><p class="lede">Everything spent once, from purchase through opening day. Enter your own amounts next to the default estimates.</p></div>
+<div class="ph"><a class="xl" href="806-Ramseur-PnL.xlsx" download>⤓ Download Excel model</a><div class="eyebrow">02 · Initial Capex</div><h1>Initial capex</h1><p class="lede">Everything spent once to build out and open, excluding the property purchase. Enter your own amounts next to the default estimates.</p></div>
 
 <section><div class="facts">
-<div class="fact"><div class="k">Total project cost</div><div class="v" id="k_tot"></div><div class="s">Incl. contingency</div></div>
-<div class="fact"><div class="k">Acquisition</div><div class="v" id="k_acq"></div><div class="s">Price, closing, due diligence</div></div>
-<div class="fact"><div class="k">Build-out + opening</div><div class="v" id="k_bld"></div><div class="s" id="k_bld_s"></div></div>
-<div class="fact"><div class="k">Capex excl. purchase price</div><div class="v" id="k_eq"></div><div class="s" id="k_eq_s"></div></div>
+<div class="fact"><div class="k">Total initial capex</div><div class="v" id="k_tot"></div><div class="s">Incl. contingency; used in Simple ROI</div></div>
+<div class="fact"><div class="k">Build-out + opening</div><div class="v" id="k_bld"></div><div class="s">Before contingency</div></div>
+<div class="fact"><div class="k">Contingency</div><div class="v" id="k_acq"></div><div class="s" id="k_bld_s"></div></div>
+<div class="fact"><div class="k">Property</div><div class="v">Separate</div><div class="s">Purchase and financing are on the <a href="pnl.html">P&amp;L</a> tab</div></div>
 </div></section>
 <section><h2>One-time costs</h2>
 <div class="btns" style="margin-bottom:12px"><button type="button" id="reset">Reset to default estimates</button></div>
@@ -32,13 +32,12 @@
 <p class="note">The $75,000 security line covers option B (about $62,000) plus about $13,000 of cameras.</p>
 </section>
 <script>
-const CC={"items": [{"cat": "Acquisition", "item": "Purchase price", "dflt": 1800000, "basis": "Owner target; broker asking $2.2M ($176/SF)"}, {"cat": "Acquisition", "item": "Closing costs (~2%)", "dflt": 36000, "basis": "Legal, title, recording, lender fees"}, {"cat": "Acquisition", "item": "Due diligence: Phase I ESA, survey, inspection, zoning letter", "dflt": 8000, "basis": "Owner estimate"}, {"cat": "Soft costs", "item": "Architecture, engineering, permit fees", "dflt": 25000, "basis": "Owner estimate"}, {"cat": "Building", "item": "Building upfit: change-of-use code work, sprinklers, egress, restrooms", "dflt": 150000, "basis": "Owner estimate; see Issues"}, {"cat": "Course", "item": "9 covered holes inside building", "dflt": 100000, "basis": "Owner estimate"}, {"cat": "Course", "item": "9 outdoor holes in yard", "dflt": 100000, "basis": "Owner estimate"}, {"cat": "Course", "item": "Outdoor site work, drainage, lighting", "dflt": 75000, "basis": "Owner estimate"}, {"cat": "Bar + food", "item": "Bar build-out: bar, coolers, draft, ice machine, POS", "dflt": 175000, "basis": "Estimate"}, {"cat": "Bar + food", "item": "Ice cream stand: dipping cabinet, freezers, window, sink", "dflt": 35000, "basis": "Estimate"}, {"cat": "Bar + food", "item": "Food truck court: power pedestals, pad, grease/trash area", "dflt": 15000, "basis": "Owner estimate"}, {"cat": "Security", "item": "Perimeter security: fence, gates, cameras", "dflt": 75000, "basis": "Owner estimate; fence options below"}, {"cat": "Site", "item": "Signage and branding", "dflt": 20000, "basis": "Owner estimate"}, {"cat": "Site", "item": "Patio and outdoor equipment", "dflt": 10000, "basis": "Owner estimate"}, {"cat": "Equipment", "item": "Putters, balls, bar smallwares", "dflt": 10000, "basis": "Owner estimate"}, {"cat": "Opening", "item": "Pre-opening: hiring, training, launch marketing, ABC permits", "dflt": 25000, "basis": "Owner estimate"}], "cont": 0.1, "debt": 0.7};
+const CC={"items": [{"cat": "Soft costs", "item": "Architecture, engineering, permit fees", "dflt": 25000, "basis": "Owner estimate"}, {"cat": "Building", "item": "Building upfit: change-of-use code work, sprinklers, egress, restrooms", "dflt": 150000, "basis": "Owner estimate; see Issues"}, {"cat": "Course", "item": "9 covered holes inside building", "dflt": 100000, "basis": "Owner estimate"}, {"cat": "Course", "item": "9 outdoor holes in yard", "dflt": 100000, "basis": "Owner estimate"}, {"cat": "Course", "item": "Outdoor site work, drainage, lighting", "dflt": 75000, "basis": "Owner estimate"}, {"cat": "Bar + food", "item": "Bar build-out: bar, coolers, draft, ice machine, POS", "dflt": 175000, "basis": "Estimate"}, {"cat": "Bar + food", "item": "Ice cream stand: dipping cabinet, freezers, window, sink", "dflt": 35000, "basis": "Estimate"}, {"cat": "Bar + food", "item": "Food truck court: power pedestals, pad, grease/trash area", "dflt": 15000, "basis": "Owner estimate"}, {"cat": "Security", "item": "Perimeter security: fence, gates, cameras", "dflt": 75000, "basis": "Owner estimate; fence options below"}, {"cat": "Site", "item": "Signage and branding", "dflt": 20000, "basis": "Owner estimate"}, {"cat": "Site", "item": "Patio and outdoor equipment", "dflt": 10000, "basis": "Owner estimate"}, {"cat": "Equipment", "item": "Putters, balls, bar smallwares", "dflt": 10000, "basis": "Owner estimate"}, {"cat": "Opening", "item": "Pre-opening: hiring, training, launch marketing, ABC permits", "dflt": 25000, "basis": "Owner estimate"}], "cont": 0.1, "debt": 0.7};
 const fmt=v=>'$'+Math.round(v).toLocaleString('en-US');
 let V=CC.items.map(x=>x.dflt),CONT=CC.cont;
-try{const sv=JSON.parse(localStorage.getItem('ramseur-capex'));if(sv&&sv.v&&sv.v.length===V.length){V=sv.v;CONT=sv.c}}catch(e){}
+try{const sv=JSON.parse(localStorage.getItem('ramseur-capex2'));if(sv&&sv.v&&sv.v.length===V.length){V=sv.v;CONT=sv.c}}catch(e){}
 function build(){let h='',cur='';
  CC.items.forEach((x,i)=>{h+=`<tr><td>${x.cat!==cur?x.cat:''}</td><td>${x.item}<div class="note">${x.basis}</div></td><td class="n"><input id="c${i}" type="number" min="0" step="1000" inputmode="decimal" value="${V[i]}" aria-label="${x.item}" style="width:120px;border-color:var(--alert);color:var(--alert)"></td><td class="n">${fmt(x.dflt)}</td></tr>`;cur=x.cat});
- h+=`<tr class="sub"><td></td><td>Subtotal: acquisition</td><td class="n" id="s_acq"></td><td class="n" id="d_acq"></td></tr>`;
  h+=`<tr class="sub"><td></td><td>Subtotal: build-out and opening</td><td class="n" id="s_bld"></td><td class="n" id="d_bld"></td></tr>`;
  h+=`<tr><td></td><td>Contingency on build-out (%)</td><td class="n"><input id="cont" type="number" min="0" step="1" value="${Math.round(CONT*100)}" aria-label="Contingency percent" style="width:120px"> <span id="s_cont"></span></td><td class="n" id="d_cont"></td></tr>`;
  h+=`<tr class="total"><td></td><td>Total project cost</td><td class="n" id="s_tot"></td><td class="n" id="d_tot"></td></tr>`;
@@ -48,11 +47,10 @@ function calc(){V=CC.items.map((x,i)=>parseFloat(document.getElementById('c'+i).
  const a=sum(V,true),b=sum(V,false),c=b*CONT,t=a+b+c;
  const D=CC.items.map(x=>x.dflt),da=sum(D,true),db=sum(D,false),dc=db*CC.cont,dt=da+db+dc;
  const set=(id,v)=>document.getElementById(id).textContent=v;
- set('s_acq',fmt(a));set('s_bld',fmt(b));set('s_cont',fmt(c));set('s_tot',fmt(t));
- set('d_acq',fmt(da));set('d_bld',fmt(db));set('d_cont',fmt(dc)+' ('+Math.round(CC.cont*100)+'%)');set('d_tot',fmt(dt));
- set('k_tot',fmt(t));set('k_acq',fmt(a));set('k_bld',fmt(b+c));set('k_bld_s','Incl. '+Math.round(CONT*100)+'% contingency');
- set('k_eq',fmt(t-V[0]));set('k_eq_s','Used in Simple ROI on the P&L tab');
- try{localStorage.setItem('ramseur-capex',JSON.stringify({v:V,c:CONT}))}catch(e){}}
+ set('s_bld',fmt(b));set('s_cont',fmt(c));set('s_tot',fmt(t));
+ set('d_bld',fmt(db));set('d_cont',fmt(dc)+' ('+Math.round(CC.cont*100)+'%)');set('d_tot',fmt(dt));
+ set('k_tot',fmt(t));set('k_acq',fmt(c));set('k_bld',fmt(b));set('k_bld_s',Math.round(CONT*100)+'% of build-out');
+ try{localStorage.setItem('ramseur-capex2',JSON.stringify({v:V,c:CONT}))}catch(e){}}
 build();calc();
 document.addEventListener('input',e=>{if(e.target.matches('input'))calc()});
 document.getElementById('reset').addEventListener('click',()=>{V=CC.items.map(x=>x.dflt);CONT=CC.cont;build();calc();document.getElementById('cmsg').textContent='Default estimates restored.'});
